@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/hai/Documents/TTS-SourceFiles/TTS-SourceFiles.csproj": {}
+    "/Users/hai/Desktop/TTS-Project/TTS-SourceFiles/TTS-SourceFiles.csproj": {}
   },
   "projects": {
-    "/Users/hai/Documents/TTS-SourceFiles/TTS-SourceFiles.csproj": {
+    "/Users/hai/Desktop/TTS-Project/TTS-SourceFiles/TTS-SourceFiles.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/hai/Documents/TTS-SourceFiles/TTS-SourceFiles.csproj",
+        "projectUniqueName": "/Users/hai/Desktop/TTS-Project/TTS-SourceFiles/TTS-SourceFiles.csproj",
         "projectName": "TTS-SourceFiles",
-        "projectPath": "/Users/hai/Documents/TTS-SourceFiles/TTS-SourceFiles.csproj",
+        "projectPath": "/Users/hai/Desktop/TTS-Project/TTS-SourceFiles/TTS-SourceFiles.csproj",
         "packagesPath": "/Users/hai/.nuget/packages/",
-        "outputPath": "/Users/hai/Documents/TTS-SourceFiles/obj/",
+        "outputPath": "/Users/hai/Desktop/TTS-Project/TTS-SourceFiles/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/hai/.nuget/NuGet/NuGet.Config"
@@ -37,6 +37,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.5, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
