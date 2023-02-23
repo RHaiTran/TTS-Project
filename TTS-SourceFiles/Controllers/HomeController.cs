@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using TTS_SourceFiles.Models;
-
+using TTS_SourceFiles.Common;
 namespace TTS_SourceFiles.Controllers;
 
 public class HomeController : Controller
@@ -15,6 +15,11 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        using(var conn = ConnectDB.ConnectDataBase())
+        {
+            var test = string.Empty;
+            test = test + "abc";
+        }
         return View();
     }
 

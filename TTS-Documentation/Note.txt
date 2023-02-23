@@ -1,0 +1,8 @@
+#Read all images in docker
+docker images --all
+
+#Run SQL Server Linux container images with Docker
+docker run -e 'ACCEPT_EULA=Y' --name mssql -e \
+ 'SA_PASSWORD=@12341234' -p 1433:1433 -d \
+  mcr.microsoft.com/mssql/server:2022-latest
+
