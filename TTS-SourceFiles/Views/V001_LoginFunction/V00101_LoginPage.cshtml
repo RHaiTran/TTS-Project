@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="~/css/V00101_LoginPage.css" />
+</head>
+<body>
+<h2>よこそう</h2>
+<form action="/action_page.php" method="post">
+  <div class="imgcontainer">
+    <img src="~/images/web_logo.png" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container">
+    <label for="uname"><b>ユーザー</b></label>
+    <input type="text" placeholder="ユーザーを入力する。" name="uname" required>
+
+    <label for="psw"><b>パスワード</b></label>
+    <input type="password" placeholder="パスワードを入力する。" name="psw" required>
+        
+    <button type="submit">ログイン</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> 情報を保存する。
+    </label>
+  </div>
+
+  <div class="container" style="background-color:#f1f1f1">
+    <button type="button" class="cancelbtn">キャンセル</button>
+    <span class="psw">忘れてた <a href="#">password?</a></span>
+  </div>
+</form>
+</body>
+</html>

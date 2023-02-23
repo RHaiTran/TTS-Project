@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+Lwpq4fopw1XgxhSk5Mr/TPmU+yPHkuT5rjxPCNtuPA=",
+  "Hash": "XTr9a0dqUDG83NIG8YyYOMzXRvIhKhWpfRoWGE8S1/4=",
   "Source": "TTS-SourceFiles",
   "BasePath": "_content/TTS-SourceFiles",
   "Mode": "Default",
@@ -51,6 +51,23 @@
       "OriginalItemSpec": "/Users/hai/Desktop/TTS-Project/TTS-SourceFiles/obj/Debug/net6.0/scopedcss/projectbundle/TTS-SourceFiles.bundle.scp.css"
     },
     {
+      "Identity": "/Users/hai/Desktop/TTS-Project/TTS-SourceFiles/wwwroot/.DS_Store",
+      "SourceId": "TTS-SourceFiles",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/hai/Desktop/TTS-Project/TTS-SourceFiles/wwwroot/",
+      "BasePath": "_content/TTS-SourceFiles",
+      "RelativePath": ".DS_Store",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/.DS_Store"
+    },
+    {
       "Identity": "/Users/hai/Desktop/TTS-Project/TTS-SourceFiles/wwwroot/css/site.css",
       "SourceId": "TTS-SourceFiles",
       "SourceType": "Discovered",
@@ -68,6 +85,23 @@
       "OriginalItemSpec": "wwwroot/css/site.css"
     },
     {
+      "Identity": "/Users/hai/Desktop/TTS-Project/TTS-SourceFiles/wwwroot/css/V00101_LoginPage.css",
+      "SourceId": "TTS-SourceFiles",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/hai/Desktop/TTS-Project/TTS-SourceFiles/wwwroot/",
+      "BasePath": "_content/TTS-SourceFiles",
+      "RelativePath": "css/V00101_LoginPage.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/css/V00101_LoginPage.css"
+    },
+    {
       "Identity": "/Users/hai/Desktop/TTS-Project/TTS-SourceFiles/wwwroot/favicon.ico",
       "SourceId": "TTS-SourceFiles",
       "SourceType": "Discovered",
@@ -83,6 +117,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/favicon.ico"
+    },
+    {
+      "Identity": "/Users/hai/Desktop/TTS-Project/TTS-SourceFiles/wwwroot/images/web_logo.png",
+      "SourceId": "TTS-SourceFiles",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/hai/Desktop/TTS-Project/TTS-SourceFiles/wwwroot/",
+      "BasePath": "_content/TTS-SourceFiles",
+      "RelativePath": "images/web_logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/web_logo.png"
     },
     {
       "Identity": "/Users/hai/Desktop/TTS-Project/TTS-SourceFiles/wwwroot/js/site.js",

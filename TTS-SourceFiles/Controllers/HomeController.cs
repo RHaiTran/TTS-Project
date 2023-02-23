@@ -20,7 +20,7 @@ public class HomeController : Controller
             var test = string.Empty;
             test = test + "abc";
         }
-        return View();
+        return View("~/Views/V001_LoginFunction/V00101_LoginPage.cshtml");
     }
 
     public IActionResult Privacy()
