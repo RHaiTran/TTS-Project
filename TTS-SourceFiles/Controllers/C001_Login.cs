@@ -4,13 +4,19 @@ using TTS_SourceFiles.Models;
 using TTS_SourceFiles.Common;
 namespace TTS_SourceFiles.Controllers;
 
-public class C001_LoginFunction : Controller
+public class C001_Login : Controller
 {
-    private readonly ILogger<C001_LoginFunction> _logger;
+    private readonly ILogger<C001_Login> _logger;
 
-    public C001_LoginFunction(ILogger<C001_LoginFunction> logger)
+    public C001_Login(ILogger<C001_Login> logger)
     {
         _logger = logger;
+    }
+
+    [HttpGet]
+    public IActionResult Index()
+    {
+        return View("~/Views/V001_Login/V00101_LoginPage.cshtml");
     }
 
     [HttpPost]
@@ -21,6 +27,6 @@ public class C001_LoginFunction : Controller
             var test = string.Empty;
             test = test + "abc";
         }
-        return View("~/Views/V000_CommonScreen/V00001_HomePage.cshtml");
+        return View("~/Views/V000_Common/V00001_HomePage.cshtml");
     }
 }

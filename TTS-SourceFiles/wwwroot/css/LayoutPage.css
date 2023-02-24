@@ -1,0 +1,58 @@
+/* Create two columns/boxes that floats next to each other */
+nav {
+  float: left;
+  width: 20%;
+  height: 900px; /* only for demonstration, should be removed */
+  background: white;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 20%;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+li a.active {
+  background-color: midnightblue;
+  color: white;
+  width: 100%;
+}
+
+li a:hover:not(.active) {
+  background-color: gray;
+  color: whitesmoke;
+  width: 100%;
+}
+
+.icon_position {
+  float: left;
+  padding: 5px;
+}
+
+article {
+  float: left;
+  padding: 20px;
+  width: 80%;
+  background-color: #f1f1f1;
+  height: 900px; /* only for demonstration, should be removed */
+}
+
+/* Style the footer */
+footer {
+  background-color: midnightblue;
+  padding-top: 10px;
+  text-align: center;
+  color: white;
+}

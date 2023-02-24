@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TTS_SourceFiles</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/LayoutPage.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/TTS_SourceFiles.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <section>
+    <nav>
+        <ul>
+            <li><a class="active" href="#home">Home</a></li>
+            <li>
+                <div class="icon_position">
+                    <img src="~/images/notification.png" alt="Nofitication Img" id="notificationImg">
+                </div>
+                <div>
+                    <a href="#news">Notification</a>
+                </div>
+            </li>
+            <li><a href="#news">Scheldule</a></li>
+            <li><a href="#news">Message</a></li>
+            <li><a href="#news">File Management</a></li>
+            <li><a href="#news">Create New Department</a></li>
+            <li><a href="#news">Create New Account</a></li>
+            <li><a href="#contact">Account Settings</a></li>
+            <li><a href="#about">Logout</a></li>
+        </ul>
+    </nav>
+
+    <article>
+            @RenderBody()
+    </article>
+    </section>
+    <footer>
+        <div>
+            &copy; 2023 - TTS (Technical Training System)
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
