@@ -69,3 +69,6 @@
 /Users/hai/Desktop/TTS-Project/TTS-SourceFiles/bin/Debug/net6.0/Newtonsoft.Json.dll
 /Users/hai/Desktop/TTS-Project/TTS-SourceFiles/bin/Debug/net6.0/Oracle.ManagedDataAccess.dll
 /Users/hai/Desktop/TTS-Project/TTS-SourceFiles/bin/Debug/net6.0/Slapper.dll
+/Users/hai/Desktop/TTS-Project/TTS-SourceFiles/bin/Debug/net6.0/english_resource.json
+/Users/hai/Desktop/TTS-Project/TTS-SourceFiles/bin/Debug/net6.0/japanese_resource.json
+/Users/hai/Desktop/TTS-Project/TTS-SourceFiles/bin/Debug/net6.0/vietnamese_resource.json

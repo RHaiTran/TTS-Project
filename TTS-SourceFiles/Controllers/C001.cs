@@ -21,18 +21,21 @@ public class C001 : Controller
     }
 
     [HttpPost]
-    public IActionResult LoginRequest(string uname, string psw)
+    public IActionResult LoginRequest(string uname, string psw, string select_language)
     {
         R001 repo = new R001();
         bool isCheck = repo.M00101_CheckUserInfo(uname, psw);
+        M000_Layout model = new M000_Layout();
+        model.M00001_NavigationNames = repo.M00001_SetLanguage(select_language);
         if(isCheck){
-            return View("~/Views/V002_Home/V00201_HomePage.cshtml");
+            return View("~/Views/V002_Home/V00201_HomePage.cshtml", model);
         }
         else {
+            ViewBag.M_S_001 = "Cannot Login";
             return View("~/Views/V001_Login/V00101_LoginPage.cshtml");
         }
     }
-
+    
     public IActionResult Logout(string uname, string psw)
     {
         return View("~/Views/V001_Login/V00101_LoginPage.cshtml");

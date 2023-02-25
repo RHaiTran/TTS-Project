@@ -1,0 +1,13 @@
+{
+    "Resource": {
+      "Label_001": "Home",
+      "Label_002": "Notification",
+      "Label_003": "Scheldule",
+      "Label_004": "Message",
+      "Label_005": "File Management",
+      "Label_006": "Create Department",
+      "Label_007": "Create Account",
+      "Label_008": "Account Setting",
+      "Label_009": "Logout"
+    }
+}
