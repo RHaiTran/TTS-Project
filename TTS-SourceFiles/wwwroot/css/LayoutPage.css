@@ -1,3 +1,8 @@
+header {
+  background-color: midnightblue;
+  padding: 10px;
+}
+
 /* Create two columns/boxes that floats next to each other */
 nav {
   float: left;
@@ -25,7 +30,7 @@ li a {
 }
 
 li a.active {
-  background-color: midnightblue;
+  background-color: gray;
   color: white;
   width: 100%;
 }

@@ -4,33 +4,37 @@
     <link rel="stylesheet" href="~/css/V00101_LoginPage.css" />
 </head>
 <body>
-<form asp-controller="C001" asp-action="LoginRequest" method="post">
-  <div class="imgcontainer">
-    <h3>Technical Training System</h3>
-  </div>
+<section>
+  <article>
+  <form asp-controller="C001" asp-action="LoginRequest" method="post">
+    <div class="imgcontainer">
+      <h3>技術研修システム</h3>
+    </div>
 
-  <label>@ViewBag.M_S_001</label>
-  <div class="container">
-    <label for="uname"><b>ユーザー</b></label>
-    <input type="text" placeholder="ユーザーを入力する。" name="uname" required>
+    <label>@ViewBag.M_S_001</label>
+    <div class="container">
+      <label for="uname"><b>ユーザー名</b></label>
+      <input type="text" placeholder="ユーザー名を入力する。" name="uname" required>
 
-    <label for="psw"><b>パスワード</b></label>
-    <input type="password" placeholder="パスワードを入力する。" name="psw" required>
-        
-    <button type="submit">ログイン</button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> 情報を保存する。
-    </label>
-  </div>
-  
-  <div class="container" style="background-color:#f1f1f1">
-    <select name="select_language" id="select_language">
-      <option value="ja">日本語</option>
-      <option value="en">English</option>
-      <option value="vn">Tiếng Việt</option>
-    </select>
-    <label for="cars">※言語を選択してください。</label>
-  </div>
-</form>
+      <label for="psw"><b>パスワード</b></label>
+      <input type="password" placeholder="パスワードを入力する。" name="psw" required>
+          
+      <button type="submit">ログイン</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> 情報を保存する。
+      </label>
+    </div>
+    
+    <div class="container" style="background-color:#f1f1f1">
+      <select name="select_language" id="select_language">
+        <option value="ja">日本語</option>
+        <option value="en">English</option>
+        <option value="vn">Tiếng Việt</option>
+      </select>
+      <label for="cars">※言語を選択してください。</label>
+    </div>
+  </form>
+  </article>
+</section>
 </body>
 </html>
