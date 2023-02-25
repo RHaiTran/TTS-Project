@@ -1,1 +1,14 @@
-CREATE DATABASE databasename;
+// SQL SERVER
+CREATE DATABASE ttsDB;
+
+// Create Account table
+CREATE TABLE z_AccountTbl (
+    z_account_id int NOT NULL IDENTITY(1,1),
+    z_account_name varchar(255) NOT NULL,
+    z_account_password varchar(255) NOT NULL,
+    z_is_active bit,
+    PRIMARY KEY (z_account_id)
+);
+
+INSERT INTO z_AccountTbl (z_account_name, z_account_password, z_is_active)
+VALUES ('admin', 'admin', 1);
