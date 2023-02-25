@@ -27,12 +27,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/hai/Desktop/TTS-Project/TTS-SourceFiles/Views/Shared/_LayoutPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXRQYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/hai/Desktop/TTS-Project/TTS-SourceFiles/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/hai/Desktop/TTS-Project/TTS-SourceFiles/Views/V001_LoginFunction/V00101_LoginPage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVjAwMV9Mb2dpbkZ1bmN0aW9uL1YwMDEwMV9Mb2dpblBhZ2UuY3NodG1s
+[/Users/hai/Desktop/TTS-Project/TTS-SourceFiles/Views/V001_Login/V00101_LoginPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVjAwMV9Mb2dpbi9WMDAxMDFfTG9naW5QYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/hai/Desktop/TTS-Project/TTS-SourceFiles/Views/V002_Home/V00201_HomePage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVjAwMl9Ib21lL1YwMDIwMV9Ib21lUGFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/hai/Desktop/TTS-Project/TTS-SourceFiles/Views/_ViewImports.cshtml]
