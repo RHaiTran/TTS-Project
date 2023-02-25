@@ -41,9 +41,14 @@ li a:hover:not(.active) {
   width: 100%;
 }
 
+.nav_container {
+  height: 40px;
+  width: 300px;
+}
+
 .icon_position {
   float: left;
-  padding: 5px;
+  padding: 1px;
 }
 
 article {

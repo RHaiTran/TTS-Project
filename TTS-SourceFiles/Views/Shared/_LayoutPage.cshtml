@@ -14,12 +14,43 @@
     <nav>
         <ul>
             <li>
-                <div class="icon_position">
-                    <img src="~/images/home_icon.png" alt="Home Img" id="homeImg">
-                </div>
-                <div>
-                    <a class="active" href="#home">@Model.M00001_NavigationNames[0].z_lbl_home</a>
-                </div>
+                <form asp-controller="C002" asp-action="Index" method="post">
+                    <input type="hidden" name="language" value= @ViewBag.Language>
+                    <div class="nav_container">
+                        <div class="icon_position">
+                            <img src="~/images/home_icon.png" alt="Home Img" id="homeImg">
+                        </div>
+                        <div>
+                            <button type="submit">@Model.M00001_NavigationNames[0].z_lbl_home</a>
+                        </div>
+                    </div>
+                </form>
+            </li>
+            <li>
+                <form asp-controller="C003" asp-action="Index" method="post">
+                    <input type="hidden" name="language" value= @ViewBag.Language>
+                    <div class="nav_container">
+                        <div class="icon_position">
+                            <img src="~/images/department_icon.png" alt="Department Img" id="departmentImg">
+                        </div>
+                        <div>
+                            <button type="submit">@Model.M00001_NavigationNames[0].z_lbl_create_new_department</button>
+                        </div>
+                    </div>
+                </form>
+            </li>
+            <li>
+                <form asp-controller="C004" asp-action="Index" method="post">
+                    <input type="hidden" name="language" value= @ViewBag.Language>
+                    <div class="nav_container">
+                        <div class="icon_position">
+                            <img src="~/images/account_icon.png" alt="Account Img" id="accountImg">
+                        </div>
+                        <div>
+                            <button type="submit">@Model.M00001_NavigationNames[0].z_lbl_create_new_account</button>
+                        </div>
+                    </div>
+                </form>
             </li>
             <li>
                 <div class="icon_position">
@@ -55,22 +86,6 @@
             </li>
             <li>
                 <div class="icon_position">
-                    <img src="~/images/department_icon.png" alt="Department Img" id="departmentImg">
-                </div>
-                <div>
-                    <a href="#news">@Model.M00001_NavigationNames[0].z_lbl_create_new_department</a>
-                </div>
-            </li>
-            <li>
-                <div class="icon_position">
-                    <img src="~/images/account_icon.png" alt="Account Img" id="accountImg">
-                </div>
-                <div>
-                    <a href="#news">@Model.M00001_NavigationNames[0].z_lbl_create_new_account</a>
-                </div>
-            </li>
-            <li>
-                <div class="icon_position">
                     <img src="~/images/setting_icon.jpeg" alt="Setting Img" id="settingImg">
                 </div>
                 <div>
@@ -82,7 +97,7 @@
                     <img src="~/images/logout_icon.jpeg" alt="Logout Img" id="logoutImg">
                 </div>
                 <div>
-                    <a asp-controller="C001" asp-action="Logout">@Model.M00001_NavigationNames[0].z_lbl_logout</a>
+                    <a asp-action="Logout" asp-controller="C001">@Model.M00001_NavigationNames[0].z_lbl_logout</a>
                 </div>
             </li>
         </ul>

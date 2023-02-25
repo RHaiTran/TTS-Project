@@ -28,6 +28,7 @@ public class C001 : Controller
         M000_Layout model = new M000_Layout();
         model.M00001_NavigationNames = repo.M00001_SetLanguage(select_language);
         if(isCheck){
+            ViewBag.Language = select_language;
             return View("~/Views/V002_Home/V00201_HomePage.cshtml", model);
         }
         else {
@@ -36,7 +37,7 @@ public class C001 : Controller
         }
     }
     
-    public IActionResult Logout(string uname, string psw)
+    public IActionResult Logout()
     {
         return View("~/Views/V001_Login/V00101_LoginPage.cshtml");
     }
