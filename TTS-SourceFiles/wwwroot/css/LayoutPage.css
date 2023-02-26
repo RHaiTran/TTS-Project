@@ -66,3 +66,24 @@ footer {
   text-align: center;
   color: white;
 }
+
+/* Active and Un Active Button */
+.group-btn {
+  background: midnightblue;
+  border-radius: 0px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 15px;
+  padding: 2px 2px 2px 2px;
+  text-decoration: none;
+  height: 30px;
+  width: 250px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.active, .group-btn:hover {
+  background: black;
+  text-decoration: none;
+}

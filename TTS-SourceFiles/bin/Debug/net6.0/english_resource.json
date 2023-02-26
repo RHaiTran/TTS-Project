@@ -1,13 +1,13 @@
 {
     "Resource": {
-      "Label_001": "Home",
-      "Label_002": "Notification",
-      "Label_003": "Scheldule",
-      "Label_004": "Message",
-      "Label_005": "File Management",
-      "Label_006": "Create Department",
-      "Label_007": "Create Account",
-      "Label_008": "Account Setting",
-      "Label_009": "Logout"
+      "Label_V000_001": "Home",
+      "Label_V000_002": "Notification",
+      "Label_V000_003": "Scheldule",
+      "Label_V000_004": "Message",
+      "Label_V000_005": "File Management",
+      "Label_V000_006": "Create Department",
+      "Label_V000_007": "Create Account",
+      "Label_V000_008": "Account Setting",
+      "Label_V000_009": "Logout"
     }
 }

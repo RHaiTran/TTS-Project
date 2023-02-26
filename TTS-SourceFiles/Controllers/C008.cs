@@ -20,6 +20,7 @@ public class C008 : Controller
         R001 repo = new R001();
         M000_Layout model = new M000_Layout();
         ViewBag.Language = language;
+        ViewBag.PageID = "V008";
         model.M00001_NavigationNames = repo.M00001_SetLanguage(language);
         return View("~/Views/V008_FileManagement/V00801_FileManagementPage.cshtml", model);
     }

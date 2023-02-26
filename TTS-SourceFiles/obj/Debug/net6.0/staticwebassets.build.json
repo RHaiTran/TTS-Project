@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "qGrLLthexp/VcHLE9bz4/vLPVREoiD5IGa/xSGbKGtg=",
+  "Hash": "aA+4FBFo2U4ztU+818JxdqK1UzootlIQ6IiyT5WEvbU=",
   "Source": "TTS-SourceFiles",
   "BasePath": "_content/TTS-SourceFiles",
   "Mode": "Default",
@@ -304,6 +304,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/images/web_logo.png"
+    },
+    {
+      "Identity": "/Users/hai/Desktop/TTS-Project/TTS-SourceFiles/wwwroot/js/layoutpage.js",
+      "SourceId": "TTS-SourceFiles",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/hai/Desktop/TTS-Project/TTS-SourceFiles/wwwroot/",
+      "BasePath": "_content/TTS-SourceFiles",
+      "RelativePath": "js/layoutpage.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/js/layoutpage.js"
     },
     {
       "Identity": "/Users/hai/Desktop/TTS-Project/TTS-SourceFiles/wwwroot/js/site.js",

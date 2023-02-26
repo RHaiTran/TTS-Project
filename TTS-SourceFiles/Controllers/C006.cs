@@ -20,6 +20,7 @@ public class C006 : Controller
         R001 repo = new R001();
         M000_Layout model = new M000_Layout();
         ViewBag.Language = language;
+        ViewBag.PageID = "V006";
         model.M00001_NavigationNames = repo.M00001_SetLanguage(language);
         return View("~/Views/V006_Schedule/V00601_SchedulePage.cshtml", model);
     }

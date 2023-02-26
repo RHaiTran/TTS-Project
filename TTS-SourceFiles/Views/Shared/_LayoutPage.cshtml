@@ -9,10 +9,11 @@
     <link rel="stylesheet" href="~/TTS_SourceFiles.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header></header>
+    <header><p id="PageID" hidden>@ViewBag.PageID</p></header>
     <section>
     <nav>
         <ul>
+            <div id="group-btn-lst">
             <li>
                 <form asp-controller="C002" asp-action="Index" method="post">
                     <input type="hidden" name="language" value= @ViewBag.Language>
@@ -21,7 +22,7 @@
                             <img src="~/images/home_icon.png" alt="Home Img" id="homeImg">
                         </div>
                         <div>
-                            <button type="submit">@Model.M00001_NavigationNames[0].z_lbl_home</a>
+                            <button type="submit" class="group-btn" id="homeBtn">@Model.M00001_NavigationNames[0].z_lbl_home</a>
                         </div>
                     </div>
                 </form>
@@ -34,7 +35,7 @@
                             <img src="~/images/department_icon.png" alt="Department Img" id="departmentImg">
                         </div>
                         <div>
-                            <button type="submit">@Model.M00001_NavigationNames[0].z_lbl_create_new_department</button>
+                            <button type="submit" class="group-btn" id="departmentBtn">@Model.M00001_NavigationNames[0].z_lbl_create_new_department</button>
                         </div>
                     </div>
                 </form>
@@ -47,7 +48,7 @@
                             <img src="~/images/account_icon.png" alt="Account Img" id="accountImg">
                         </div>
                         <div>
-                            <button type="submit">@Model.M00001_NavigationNames[0].z_lbl_create_new_account</button>
+                            <button type="submit" class="group-btn" id="accountBtn">@Model.M00001_NavigationNames[0].z_lbl_create_new_account</button>
                         </div>
                     </div>
                 </form>
@@ -60,7 +61,7 @@
                             <img src="~/images/notification_icon.png" alt="Nofitication Img" id="notificationImg">
                         </div>
                         <div>
-                            <button type="submit">@Model.M00001_NavigationNames[0].z_lbl_notification</button>
+                            <button type="submit" class="group-btn" id="notificationBtn">@Model.M00001_NavigationNames[0].z_lbl_notification</button>
                         </div>
                     </div>
                 </form>
@@ -73,7 +74,7 @@
                             <img src="~/images/schedule_icon.png" alt="Schedule Img" id="scheduleImg">
                         </div>
                         <div>
-                            <button type="submit">@Model.M00001_NavigationNames[0].z_lbl_scheldule</button>
+                            <button type="submit" class="group-btn" id="schelduleBtn">@Model.M00001_NavigationNames[0].z_lbl_scheldule</button>
                         </div>
                     </div>
                 </form>
@@ -86,7 +87,7 @@
                             <img src="~/images/message_icon.png" alt="Message Img" id="messageImg">
                         </div>
                         <div>
-                            <button type="submit">@Model.M00001_NavigationNames[0].z_lbl_message</button>
+                            <button type="submit" class="group-btn" id="messageBtn">@Model.M00001_NavigationNames[0].z_lbl_message</button>
                         </div>
                     </div>
                 </form>
@@ -99,7 +100,7 @@
                             <img src="~/images/file_management_icon.jpeg" alt="File Management Img" id="fileManagementImg">
                         </div>
                         <div>
-                            <button type="submit">@Model.M00001_NavigationNames[0].z_lbl_file_management</button>
+                            <button type="submit" class="group-btn" id="fileManagementBtn">@Model.M00001_NavigationNames[0].z_lbl_file_management</button>
                         </div>
                     </div>
                 </form>
@@ -112,7 +113,7 @@
                             <img src="~/images/setting_icon.jpeg" alt="Setting Img" id="settingImg">
                         </div>
                         <div>
-                            <button type="submit">@Model.M00001_NavigationNames[0].z_lbl_account_setting</button>
+                            <button type="submit" class="group-btn" id="settingBtn">@Model.M00001_NavigationNames[0].z_lbl_account_setting</button>
                         </div>
                     </div>
                 </form>
@@ -125,14 +126,14 @@
                             <img src="~/images/logout_icon.jpeg" alt="Logout Img" id="logoutImg">
                         </div>
                         <div>
-                            <button type="submit">@Model.M00001_NavigationNames[0].z_lbl_logout</button>
+                            <button type="submit" class="group-btn">@Model.M00001_NavigationNames[0].z_lbl_logout</button>
                         </div>
                     </div>
                 </form>
             </li>
+            </div>
         </ul>
     </nav>
-
     <article>
             @RenderBody()
     </article>
@@ -142,9 +143,44 @@
             &copy; 2023 - TTS (Technical Training System)
         </div>
     </footer>
+    <script>
+        debugger;
+        var pageID = document.getElementById('PageID').innerHTML;
+        var buttonID = '';
+        switch (pageID)
+        {
+            case 'V002':
+                buttonID = 'homeBtn';
+                break;
+            case 'V003':
+                buttonID = 'departmentBtn';
+                break;
+            case 'V004':
+                buttonID = 'accountBtn';
+                break;
+            case 'V005':
+                buttonID = 'notificationBtn';
+                break;
+            case 'V006':
+                buttonID = 'schelduleBtn';
+                break;
+            case 'V007':
+                buttonID = 'messageBtn';
+                break;
+            case 'V008':
+                buttonID = 'fileManagementBtn';
+                break;
+            case 'V009':
+                buttonID = 'settingBtn';
+                break;
+            default:
+                buttonID = 'homeBtn';
+        }
+        document.getElementById(buttonID).classList.add('active');
+    </script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/layoutpage.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

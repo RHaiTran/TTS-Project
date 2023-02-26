@@ -32,7 +32,7 @@ public class C001 : Controller
             return View("~/Views/V002_Home/V00201_HomePage.cshtml", model);
         }
         else {
-            ViewBag.M_S_001 = "Cannot Login";
+            ViewBag.Message_V001_001 = SetLanguage.GetFieldName(select_language, "Message_V001_001");
             return View("~/Views/V001_Login/V00101_LoginPage.cshtml");
         }
     }

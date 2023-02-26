@@ -20,6 +20,7 @@ public class C002 : Controller
         R001 repo = new R001();
         M000_Layout model = new M000_Layout();
         ViewBag.Language = language;
+        ViewBag.PageID = "V002";
         model.M00001_NavigationNames = repo.M00001_SetLanguage(language);
         return View("~/Views/V002_Home/V00201_HomePage.cshtml", model);
     }

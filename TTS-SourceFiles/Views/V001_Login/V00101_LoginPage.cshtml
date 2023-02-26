@@ -11,8 +11,13 @@
     <div class="imgcontainer">
       <h3>技術研修システム</h3>
     </div>
-
-    <label>@ViewBag.M_S_001</label>
+    @if (ViewBag.Message_V001_001 != null)
+    {
+      <div class="errMess">
+        <span class="closeMess" onclick="this.parentElement.style.display='none';">&times;</span> 
+        @ViewBag.Message_V001_001
+      </div>
+    }
     <div class="container">
       <label for="uname"><b>ユーザー名</b></label>
       <input type="text" placeholder="ユーザー名を入力する。" name="uname" required>
