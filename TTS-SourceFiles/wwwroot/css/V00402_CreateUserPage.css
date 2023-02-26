@@ -1,0 +1,44 @@
+table, td, th {
+    border: 1px solid;
+}
+  
+table {
+    width: 31%;
+    border-collapse: collapse;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.label-size {
+    width: 200px;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 5px;
+}
+
+.input-size {
+    width: 350px;
+}
+
+.btnV00402_Add {
+    background-color: white; 
+    color: black; 
+    border: 2px solid black;
+}
+  
+.btnV00402_Add:hover {
+    background-color: black;
+    color: white;
+}
+
+.btnV00402_Cancel {
+    background-color: white; 
+    color: black; 
+    border: 2px solid red;
+}
+  
+.btnV00402_Cancel:hover {
+    background-color: red;
+    color: white;
+}
+  

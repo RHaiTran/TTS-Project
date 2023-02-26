@@ -44,6 +44,7 @@ namespace TTS_SourceFiles.Repository
             string z_lbl_update_date = SetLanguage.GetFieldName(select_language, "Label_V004_006");
             string z_lbl_create_by_user = SetLanguage.GetFieldName(select_language, "Label_V004_007");
             string z_lbl_update_by_user = SetLanguage.GetFieldName(select_language, "Label_V004_008");
+            string z_btn_create_user = SetLanguage.GetFieldName(select_language, "Button_V004_001");
 
             List<M00401_LabelTable> m00401_LabelTables = new List<M00401_LabelTable>();
             m00401_LabelTables.Add(new M00401_LabelTable() { 
@@ -54,7 +55,8 @@ namespace TTS_SourceFiles.Repository
                 z_lbl_create_date = z_lbl_create_date,
                 z_lbl_update_date = z_lbl_update_date,
                 z_lbl_create_by_user = z_lbl_create_by_user,
-                z_lbl_update_by_user = z_lbl_update_by_user
+                z_lbl_update_by_user = z_lbl_update_by_user,
+                z_btn_create_user = z_btn_create_user,
             });
             return m00401_LabelTables;
         }

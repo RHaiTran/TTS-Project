@@ -89,3 +89,17 @@ footer {
   background: black;
   text-decoration: none;
 }
+
+.btnUser {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}

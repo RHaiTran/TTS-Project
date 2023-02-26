@@ -17,6 +17,7 @@ namespace TTS_SourceFiles.Models
         public string z_lbl_update_date {get; set;}
         public string z_lbl_create_by_user {get; set;}
         public string z_lbl_update_by_user {get; set;}
+        public string z_btn_create_user {get; set;}
     }
 
     public class M00402_GetAllAccount

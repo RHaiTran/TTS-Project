@@ -26,4 +26,15 @@ public class C004 : Controller
         model.M00402_GetAllAccounts = repo.M00402_GetAllAccounts();
         return View("~/Views/V004_Account/V00401_AccountPage.cshtml", model);
     }
+
+    [HttpPost]
+    public IActionResult CreateUserPage(string language)
+    {
+        R004 repo = new R004();
+        M004_Account model = new M004_Account();
+        ViewBag.Language = language;
+        ViewBag.PageID = "V004";
+        model.M00001_NavigationNames = repo.M00400_SetLabelLayout(language);
+        return View("~/Views/V004_Account/V00402_CreateUserPage.cshtml", model);
+    }
 }
