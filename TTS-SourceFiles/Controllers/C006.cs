@@ -5,11 +5,11 @@ using TTS_SourceFiles.Common;
 using TTS_SourceFiles.Repository;
 namespace TTS_SourceFiles.Controllers;
 
-public class C004 : Controller
+public class C006 : Controller
 {
-    private readonly ILogger<C004> _logger;
+    private readonly ILogger<C006> _logger;
 
-    public C004(ILogger<C004> logger)
+    public C006(ILogger<C006> logger)
     {
         _logger = logger;
     }
@@ -21,6 +21,6 @@ public class C004 : Controller
         M000_Layout model = new M000_Layout();
         ViewBag.Language = language;
         model.M00001_NavigationNames = repo.M00001_SetLanguage(language);
-        return View("~/Views/V004_Account/V00401_AccountPage.cshtml", model);
+        return View("~/Views/V006_Schedule/V00601_SchedulePage.cshtml", model);
     }
 }

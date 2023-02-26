@@ -36,9 +36,4 @@ public class C001 : Controller
             return View("~/Views/V001_Login/V00101_LoginPage.cshtml");
         }
     }
-    
-    public IActionResult Logout()
-    {
-        return View("~/Views/V001_Login/V00101_LoginPage.cshtml");
-    }
 }

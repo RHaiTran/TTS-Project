@@ -53,52 +53,82 @@
                 </form>
             </li>
             <li>
-                <div class="icon_position">
-                    <img src="~/images/notification_icon.png" alt="Nofitication Img" id="notificationImg">
-                </div>
-                <div>
-                    <a href="#news">@Model.M00001_NavigationNames[0].z_lbl_notification</a>
-                </div>
+                <form asp-controller="C005" asp-action="Index" method="post">
+                    <input type="hidden" name="language" value= @ViewBag.Language>
+                    <div class="nav_container">
+                        <div class="icon_position">
+                            <img src="~/images/notification_icon.png" alt="Nofitication Img" id="notificationImg">
+                        </div>
+                        <div>
+                            <button type="submit">@Model.M00001_NavigationNames[0].z_lbl_notification</button>
+                        </div>
+                    </div>
+                </form>
             </li>
             <li>
-                <div class="icon_position">
-                    <img src="~/images/schedule_icon.png" alt="Schedule Img" id="scheduleImg">
-                </div>
-                <div>
-                    <a href="#news">@Model.M00001_NavigationNames[0].z_lbl_scheldule</a>
-                </div>
+                <form asp-controller="C006" asp-action="Index" method="post">
+                    <input type="hidden" name="language" value= @ViewBag.Language>
+                    <div class="nav_container">
+                        <div class="icon_position">
+                            <img src="~/images/schedule_icon.png" alt="Schedule Img" id="scheduleImg">
+                        </div>
+                        <div>
+                            <button type="submit">@Model.M00001_NavigationNames[0].z_lbl_scheldule</button>
+                        </div>
+                    </div>
+                </form>
             </li>
             <li>
-                <div class="icon_position">
-                    <img src="~/images/message_icon.png" alt="Message Img" id="messageImg">
-                </div>
-                <div>
-                    <a href="#news">@Model.M00001_NavigationNames[0].z_lbl_message</a>
-                </div>
+                <form asp-controller="C007" asp-action="Index" method="post">
+                    <input type="hidden" name="language" value= @ViewBag.Language>
+                    <div class="nav_container">
+                        <div class="icon_position">
+                            <img src="~/images/message_icon.png" alt="Message Img" id="messageImg">
+                        </div>
+                        <div>
+                            <button type="submit">@Model.M00001_NavigationNames[0].z_lbl_message</button>
+                        </div>
+                    </div>
+                </form>
             </li>
             <li>
-                <div class="icon_position">
-                    <img src="~/images/file_management_icon.jpeg" alt="File Management Img" id="fileManagementImg">
-                </div>
-                <div>
-                    <a href="#news">@Model.M00001_NavigationNames[0].z_lbl_file_management</a>
-                </div>
+                <form asp-controller="C008" asp-action="Index" method="post">
+                    <input type="hidden" name="language" value= @ViewBag.Language>
+                    <div class="nav_container">
+                        <div class="icon_position">
+                            <img src="~/images/file_management_icon.jpeg" alt="File Management Img" id="fileManagementImg">
+                        </div>
+                        <div>
+                            <button type="submit">@Model.M00001_NavigationNames[0].z_lbl_file_management</button>
+                        </div>
+                    </div>
+                </form>
             </li>
             <li>
-                <div class="icon_position">
-                    <img src="~/images/setting_icon.jpeg" alt="Setting Img" id="settingImg">
-                </div>
-                <div>
-                    <a href="#contact">@Model.M00001_NavigationNames[0].z_lbl_account_setting</a></li>
-                </div>
+                <form asp-controller="C009" asp-action="Index" method="post">
+                    <input type="hidden" name="language" value= @ViewBag.Language>
+                    <div class="nav_container">
+                        <div class="icon_position">
+                            <img src="~/images/setting_icon.jpeg" alt="Setting Img" id="settingImg">
+                        </div>
+                        <div>
+                            <button type="submit">@Model.M00001_NavigationNames[0].z_lbl_account_setting</button>
+                        </div>
+                    </div>
+                </form>
             </li>
             <li>
-                <div class="icon_position">
-                    <img src="~/images/logout_icon.jpeg" alt="Logout Img" id="logoutImg">
-                </div>
-                <div>
-                    <a asp-action="Logout" asp-controller="C001">@Model.M00001_NavigationNames[0].z_lbl_logout</a>
-                </div>
+                <form asp-controller="C010" asp-action="Logout" method="get">
+                    <input type="hidden" name="language" value= @ViewBag.Language>
+                    <div class="nav_container">
+                        <div class="icon_position">
+                            <img src="~/images/logout_icon.jpeg" alt="Logout Img" id="logoutImg">
+                        </div>
+                        <div>
+                            <button type="submit">@Model.M00001_NavigationNames[0].z_lbl_logout</button>
+                        </div>
+                    </div>
+                </form>
             </li>
         </ul>
     </nav>
