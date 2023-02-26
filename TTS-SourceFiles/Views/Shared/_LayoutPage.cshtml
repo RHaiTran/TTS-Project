@@ -143,41 +143,6 @@
             &copy; 2023 - TTS (Technical Training System)
         </div>
     </footer>
-    <script>
-        debugger;
-        var pageID = document.getElementById('PageID').innerHTML;
-        var buttonID = '';
-        switch (pageID)
-        {
-            case 'V002':
-                buttonID = 'homeBtn';
-                break;
-            case 'V003':
-                buttonID = 'departmentBtn';
-                break;
-            case 'V004':
-                buttonID = 'accountBtn';
-                break;
-            case 'V005':
-                buttonID = 'notificationBtn';
-                break;
-            case 'V006':
-                buttonID = 'schelduleBtn';
-                break;
-            case 'V007':
-                buttonID = 'messageBtn';
-                break;
-            case 'V008':
-                buttonID = 'fileManagementBtn';
-                break;
-            case 'V009':
-                buttonID = 'settingBtn';
-                break;
-            default:
-                buttonID = 'homeBtn';
-        }
-        document.getElementById(buttonID).classList.add('active');
-    </script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/layoutpage.js" asp-append-version="true"></script>

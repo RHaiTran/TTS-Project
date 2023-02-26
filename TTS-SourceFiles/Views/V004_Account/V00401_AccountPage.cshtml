@@ -1,5 +1,52 @@
 @{
     Layout = "_LayoutPage";
 }
-
+<link rel="stylesheet" href="~/css/V00401_AccountPage.css" asp-append-version="true" />
 <h1>Account Page</h1>
+<div>
+<table>
+  <tr>
+    <th>@Model.M00401_LabelTables[0].z_lbl_account_id</th>
+    <th>@Model.M00401_LabelTables[0].z_lbl_account_name</th>
+    <th>@Model.M00401_LabelTables[0].z_lbl_account_password</th>
+    <th>@Model.M00401_LabelTables[0].z_lbl_is_active</th>
+    <th>@Model.M00401_LabelTables[0].z_lbl_create_date</th>
+    <th>@Model.M00401_LabelTables[0].z_lbl_update_date</th>
+    <th>@Model.M00401_LabelTables[0].z_lbl_create_by_user</th>
+    <th>@Model.M00401_LabelTables[0].z_lbl_update_by_user</th>
+  </tr>
+  @if (@Model.M00402_GetAllAccounts.Count > 0)
+  {
+    @for (int i = 0; i < @Model.M00402_GetAllAccounts.Count; i++) 
+    {
+      <tr>
+        <td>@Model.M00402_GetAllAccounts[i].z_account_id</td>
+        <td>@Model.M00402_GetAllAccounts[i].z_account_name</td>
+        <td>@Model.M00402_GetAllAccounts[i].z_account_password</td>
+        <td>
+          @if(@Model.M00402_GetAllAccounts[i].z_is_active)
+          {
+            <input type="checkbox" checked disabled> 
+          } else {
+            <input type="checkbox" disabled> 
+          }
+        </td>
+        <td>
+          @string.Format("{0}/{1}/{2}",
+          @Model.M00402_GetAllAccounts[i].z_create_date.Year,
+          @Model.M00402_GetAllAccounts[i].z_create_date.Month.ToString().PadLeft(2, '0'),
+          @Model.M00402_GetAllAccounts[i].z_create_date.Day)
+        </td>
+        <td>
+          @string.Format("{0}/{1}/{2}",
+          @Model.M00402_GetAllAccounts[i].z_update_date.Year,
+          @Model.M00402_GetAllAccounts[i].z_update_date.Month.ToString().PadLeft(2, '0'),
+          @Model.M00402_GetAllAccounts[i].z_update_date.Day)
+        </td>
+        <td>@Model.M00402_GetAllAccounts[i].z_create_by_user</td>
+        <td>@Model.M00402_GetAllAccounts[i].z_update_by_user</td>
+      </tr>
+    }
+  }
+</table>
+<div>

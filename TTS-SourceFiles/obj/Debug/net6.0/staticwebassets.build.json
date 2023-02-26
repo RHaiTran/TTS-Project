@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "aA+4FBFo2U4ztU+818JxdqK1UzootlIQ6IiyT5WEvbU=",
+  "Hash": "+A+Lx7clnPt9GhLr1k5R7TlvjTzIyDuJl1gFygoLTys=",
   "Source": "TTS-SourceFiles",
   "BasePath": "_content/TTS-SourceFiles",
   "Mode": "Default",
@@ -117,6 +117,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/css/V00101_LoginPage.css"
+    },
+    {
+      "Identity": "/Users/hai/Desktop/TTS-Project/TTS-SourceFiles/wwwroot/css/V00401_AccountPage.css",
+      "SourceId": "TTS-SourceFiles",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/hai/Desktop/TTS-Project/TTS-SourceFiles/wwwroot/",
+      "BasePath": "_content/TTS-SourceFiles",
+      "RelativePath": "css/V00401_AccountPage.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/css/V00401_AccountPage.css"
     },
     {
       "Identity": "/Users/hai/Desktop/TTS-Project/TTS-SourceFiles/wwwroot/favicon.ico",

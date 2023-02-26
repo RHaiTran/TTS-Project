@@ -81,6 +81,8 @@ footer {
   margin-top: 5px;
   margin-bottom: 5px;
   display: block;
+  text-align: left;
+  padding-left: 10px;
 }
 
 .active, .group-btn:hover {
