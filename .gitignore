@@ -2,4 +2,5 @@
 obj/
 
 # Untracking bin/Debug/6.0
+bin/Debug/
 bin/Debug/net6.0
