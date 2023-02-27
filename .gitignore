@@ -1,0 +1,6 @@
+# ignore ALL .log files
+*.log
+
+# ignore ALL files in ANY directory named temp
+/Users/hai/Desktop/TTS-Project/TTS-SourceFiles/obj/staticwebassets.pack.sentinel
+/obj
