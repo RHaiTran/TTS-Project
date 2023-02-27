@@ -91,5 +91,25 @@ namespace TTS_SourceFiles.Repository
             }
             return isExist;
         }
+
+        public bool M00404_CreateNewAccount(string uname, string psw, int checkbox)
+        {
+            bool isSuccess = true;
+            try
+            {
+                using(var conn = ConnectDB.ConnectDataBase())
+                {
+                    StringBuilder sqlFormat = new StringBuilder(string.Empty);
+                    sqlFormat.Append("INSERT INTO ttsDB.dbo.z_AccountTbl (z_account_name, z_account_password, z_is_active) ");
+                    sqlFormat.Append("VALUES ('{0}', '{1}', {2}); ");
+                    string sqlQuery = string.Format(sqlFormat.ToString(), uname, psw, checkbox.ToString());
+                    conn.Query(sqlQuery);
+                }
+            } catch (Exception ex)
+            {
+                isSuccess = false;
+            }
+            return isSuccess;
+        }
     }
 }

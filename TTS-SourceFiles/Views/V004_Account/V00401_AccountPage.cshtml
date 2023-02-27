@@ -3,13 +3,23 @@
 }
 <link rel="stylesheet" href="~/css/V00401_AccountPage.css" asp-append-version="true" />
 <div>
-<form asp-controller="C004" asp-action="CreateUserPage" method="post">
+<form asp-controller="C004" asp-action="CreateAccountPage" method="post">
     <input type="hidden" name="language" value= @ViewBag.Language>
     <button type="submit" class="btnUser btnV004_CreateUser">@Model.M00401_LabelTables[0].z_btn_create_user</a>
 </form>
 </div>
 <div>
 <table>
+  <tr>
+    <th colspan="8">
+      @if(ViewBag.Sucess_Message_V00401 != null) {
+        <div class="errMess">
+          <span class="closeMess" onclick="this.parentElement.style.display='none';">&times;</span> 
+          @ViewBag.Sucess_Message_V00401
+        </div>
+      }
+    </th>
+  </tr>
   <tr>
     <th>@Model.M00401_LabelTables[0].z_lbl_account_id</th>
     <th>@Model.M00401_LabelTables[0].z_lbl_account_name</th>
