@@ -1,2 +1,5 @@
 # Untracking folder obj
 obj/
+
+# Untracking bin/Debug/6.0
+bin/Debug/net6.0

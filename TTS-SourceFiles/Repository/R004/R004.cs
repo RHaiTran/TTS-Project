@@ -70,5 +70,26 @@ namespace TTS_SourceFiles.Repository
                 return conn.Query<M00402_GetAllAccount>(sqlFormat.ToString()).ToList();
             }
         }
+
+        public bool M00403_IsCheckUserExists(string uname)
+        {
+            bool isExist = false;
+            using(var conn = ConnectDB.ConnectDataBase())
+            {
+                StringBuilder sqlFormat = new StringBuilder(string.Empty);
+                sqlFormat.Append("SELECT z_account_name FROM ttsDB.dbo.z_AccountTbl ");
+                List<M00402_GetAllAccount> m00402_GetAllAccounts = new List<M00402_GetAllAccount>();
+                m00402_GetAllAccounts = conn.Query<M00402_GetAllAccount>(sqlFormat.ToString()).ToList();
+                for(int i=0; i < m00402_GetAllAccounts.Count; i++)
+                {
+                    string current_uname = m00402_GetAllAccounts[i].z_account_name;
+                    if(string.Compare(current_uname, uname) == 0)
+                    {
+                        isExist = true;
+                    }
+                }
+            }
+            return isExist;
+        }
     }
 }

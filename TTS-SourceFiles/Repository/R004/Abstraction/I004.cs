@@ -10,5 +10,7 @@ namespace TTS_SourceFiles.Repository
         public List<M00401_LabelTable> M00401_SetLabelTable(string select_language);
 
         public List<M00402_GetAllAccount> M00402_GetAllAccounts();
+
+        public bool M00403_IsCheckUserExists(string uname);
     }
 }

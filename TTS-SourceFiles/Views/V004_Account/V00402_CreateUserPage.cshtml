@@ -6,6 +6,9 @@
 <form asp-controller="C004" asp-action="CreateUser" method="post">
   <input type="hidden" name="language" value= @ViewBag.Language>
   <div>
+  @if(ViewBag.Error_Message != null) {
+    <label>@ViewBag.Error_Message</label>
+  }
   <table>
     <tr>
       <th><label class="label-size" for="uname"><b>アカウントID</b></label></th>
@@ -14,10 +17,6 @@
     <tr>
       <td><label class="label-size" for="psw"><b>パスワード</b></label></td>
       <td><input class="input-size" type="password" placeholder="パスワードを入力する。" name="psw" required></td>
-    </tr>
-    <tr>
-      <td><label class="label-size" for="repsw"><b>パスワード</b></label></td>
-      <td><input class="input-size" type="password" placeholder="再確認のためパスワードを入力してください。" name="repsw" required></td>
     </tr>
     <tr>
       <td><label class="label-size" for="checkbox"><b>アクティブ</b></label></td>
