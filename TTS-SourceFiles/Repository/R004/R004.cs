@@ -92,7 +92,11 @@ namespace TTS_SourceFiles.Repository
             return isExist;
         }
 
-        public bool M00404_CreateNewAccount(string uname, string psw, int checkbox)
+        public bool M00404_CreateNewAccount(
+            string uname,
+            string psw,
+            int checkbox,
+            string current_user)
         {
             bool isSuccess = true;
             try
@@ -100,9 +104,18 @@ namespace TTS_SourceFiles.Repository
                 using(var conn = ConnectDB.ConnectDataBase())
                 {
                     StringBuilder sqlFormat = new StringBuilder(string.Empty);
-                    sqlFormat.Append("INSERT INTO ttsDB.dbo.z_AccountTbl (z_account_name, z_account_password, z_is_active) ");
-                    sqlFormat.Append("VALUES ('{0}', '{1}', {2}); ");
-                    string sqlQuery = string.Format(sqlFormat.ToString(), uname, psw, checkbox.ToString());
+                    sqlFormat.Append("INSERT INTO ttsDB.dbo.z_AccountTbl (z_account_name, z_account_password, z_is_active, z_create_date, z_update_date, z_create_by_user, z_update_by_user)　");
+                    sqlFormat.Append("VALUES ('{0}', '{1}', {2}, '{3}', '{4}', '{5}', '{6}');");
+                    string sqlQuery = string.Format(
+                        sqlFormat.ToString(),
+                        uname,
+                        psw,
+                        checkbox.ToString(),
+                        DateTime.Now.ToString(),
+                        DateTime.Now.ToString(),
+                        current_user,
+                        current_user
+                        );
                     conn.Query(sqlQuery);
                 }
             } catch (Exception ex)

@@ -14,38 +14,60 @@ public class C004 : Controller
         _logger = logger;
     }
 
-    [HttpPost]
-    public IActionResult Index(string language)
+    [HttpGet]
+    public IActionResult Index(string LANGUAGE_SETTINGS, string CURRENT_USER, string temp= null)
     {
         R004 repo = new R004();
         M004_Account model = new M004_Account();
-        ViewBag.Language = language;
+        ViewData["LANGUAGE_SETTINGS"] = LANGUAGE_SETTINGS;
         ViewBag.PageID = "V004";
-        model.M00001_NavigationNames = repo.M00400_SetLabelLayout(language);
-        model.M00401_LabelTables = repo.M00401_SetLabelTable(language);
+        model.CURRENT_USER = CURRENT_USER;
+        model.M00001_NavigationNames = repo.M00400_SetLabelLayout(LANGUAGE_SETTINGS);
+        model.M00401_LabelTables = repo.M00401_SetLabelTable(LANGUAGE_SETTINGS);
+        model.M00402_GetAllAccounts = repo.M00402_GetAllAccounts();
+        return View("~/Views/V004_Account/V00401_AccountPage.cshtml", model);
+    }
+
+
+    [HttpPost]
+    public IActionResult Index(string LANGUAGE_SETTINGS, string CURRENT_USER)
+    {
+        R004 repo = new R004();
+        M004_Account model = new M004_Account();
+        ViewData["LANGUAGE_SETTINGS"] = LANGUAGE_SETTINGS;
+        ViewBag.PageID = "V004";
+        model.CURRENT_USER = CURRENT_USER;
+        model.M00001_NavigationNames = repo.M00400_SetLabelLayout(LANGUAGE_SETTINGS);
+        model.M00401_LabelTables = repo.M00401_SetLabelTable(LANGUAGE_SETTINGS);
         model.M00402_GetAllAccounts = repo.M00402_GetAllAccounts();
         return View("~/Views/V004_Account/V00401_AccountPage.cshtml", model);
     }
 
     [HttpPost]
-    public IActionResult CreateAccountPage(string language)
+    public IActionResult CreateAccountPage(string LANGUAGE_SETTINGS, string CURRENT_USER)
     {
         R004 repo = new R004();
         M004_Account model = new M004_Account();
-        ViewBag.Language = language;
+        ViewData["LANGUAGE_SETTINGS"] = LANGUAGE_SETTINGS;
         ViewBag.PageID = "V004";
-        model.M00001_NavigationNames = repo.M00400_SetLabelLayout(language);
+        model.CURRENT_USER = CURRENT_USER;
+        model.M00001_NavigationNames = repo.M00400_SetLabelLayout(LANGUAGE_SETTINGS);
         return View("~/Views/V004_Account/V00402_CreateAccountPage.cshtml", model);
     }
 
-    public IActionResult CreateAccount(string uname, string psw, string checkbox, string language)
+    public IActionResult CreateAccount(
+        string uname,
+        string psw,
+        string checkbox,
+        string CURRENT_USER,
+        string LANGUAGE_SETTINGS)
     {
         R004 repo = new R004();
         M004_Account model = new M004_Account();
-        ViewBag.Language = language;
+        ViewData["LANGUAGE_SETTINGS"] = LANGUAGE_SETTINGS;
         ViewBag.PageID = "V004";
-        model.M00001_NavigationNames = repo.M00400_SetLabelLayout(language);
-        model.M00401_LabelTables = repo.M00401_SetLabelTable(language);
+        model.M00001_NavigationNames = repo.M00400_SetLabelLayout(LANGUAGE_SETTINGS);
+        model.M00401_LabelTables = repo.M00401_SetLabelTable(LANGUAGE_SETTINGS);
         model.M00402_GetAllAccounts = repo.M00402_GetAllAccounts();
         ViewData["uname"] = uname;
         ViewData["psw"] = psw;
@@ -69,22 +91,22 @@ public class C004 : Controller
             if(checkbox != null) {
                 isChecked = 1;
             }
-            bool isSuccess = repo.M00404_CreateNewAccount(uname, psw, isChecked);
+            bool isSuccess = repo.M00404_CreateNewAccount(uname, psw, isChecked, CURRENT_USER);
             if(isSuccess) {
                 ViewBag.Sucess_Message_V00401 = "OK";
             }
-            return View("~/Views/V004_Account/V00401_AccountPage.cshtml", model);
+            return RedirectToAction("Index", "C004", new { LANGUAGE_SETTINGS = LANGUAGE_SETTINGS,  CURRENT_USER = CURRENT_USER});
         }
     }
 
-    public IActionResult BackAccountPage(string language)
+    public IActionResult BackAccountPage(string LANGUAGE_SETTINGS)
     {
         R004 repo = new R004();
         M004_Account model = new M004_Account();
-        ViewBag.Language = language;
+        ViewData["LANGUAGE_SETTINGS"] = LANGUAGE_SETTINGS;
         ViewBag.PageID = "V004";
-        model.M00001_NavigationNames = repo.M00400_SetLabelLayout(language);
-        model.M00401_LabelTables = repo.M00401_SetLabelTable(language);
+        model.M00001_NavigationNames = repo.M00400_SetLabelLayout(LANGUAGE_SETTINGS);
+        model.M00401_LabelTables = repo.M00401_SetLabelTable(LANGUAGE_SETTINGS);
         model.M00402_GetAllAccounts = repo.M00402_GetAllAccounts();
         return View("~/Views/V004_Account/V00401_AccountPage.cshtml", model);
     }

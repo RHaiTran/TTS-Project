@@ -4,7 +4,8 @@
 <link rel="stylesheet" href="~/css/V00402_CreateAccountPage.css" asp-append-version="true" />
 <div>
 <form asp-controller="C004" asp-action="CreateAccount" method="post">
-  <input type="hidden" name="language" value= @ViewBag.Language>
+  <input type="hidden" name="LANGUAGE_SETTINGS" value= @ViewData["LANGUAGE_SETTINGS"]>
+  <input type="hidden" name="CURRENT_USER" value= @Model.CURRENT_USER>
   <div>
   <table>
     <tr>

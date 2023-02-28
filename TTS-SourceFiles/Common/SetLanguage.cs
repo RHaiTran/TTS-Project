@@ -24,12 +24,25 @@ namespace TTS_SourceFiles.Common
                 // 処理なし
                 break;
             }
-            var configurationBuilder = new ConfigurationBuilder();
-            string path = Path.Combine(Directory.GetCurrentDirectory(), languageFile);
-            configurationBuilder.AddJsonFile(path, optional: false);
 
-            var configuration = configurationBuilder.Build();
-            string fieldName = configuration.GetSection("Resource").GetValue<string>(fieldID);
+            string fieldName = string.Empty;
+            try
+            {
+                var configurationBuilder = new ConfigurationBuilder();
+                string path = Path.Combine(Directory.GetCurrentDirectory(), languageFile);
+                configurationBuilder.AddJsonFile(path, optional: false);
+
+                var configuration = configurationBuilder.Build();
+                fieldName = configuration.GetSection("Resource").GetValue<string>(fieldID);
+            }
+            catch (Exception)
+            {
+                fieldName = "Unknow";
+            }
+            finally
+            {
+                // 処理なし
+            }
             return fieldName;
         }
     }

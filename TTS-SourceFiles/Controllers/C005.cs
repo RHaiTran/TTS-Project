@@ -15,13 +15,13 @@ public class C005 : Controller
     }
 
     [HttpPost]
-    public IActionResult Index(string language)
+    public IActionResult Index(string LANGUAGE_SETTINGS)
     {
         R001 repo = new R001();
         M000_Layout model = new M000_Layout();
-        ViewBag.Language = language;
+        ViewData["LANGUAGE_SETTINGS"] = LANGUAGE_SETTINGS;
         ViewBag.PageID = "V005";
-        model.M00001_NavigationNames = repo.M00001_SetLanguage(language);
+        model.M00001_NavigationNames = repo.M00001_SetLanguage(LANGUAGE_SETTINGS);
         return View("~/Views/V005_Notification/V00501_NotificationPage.cshtml", model);
     }
 }

@@ -9,14 +9,17 @@
     <link rel="stylesheet" href="~/TTS_SourceFiles.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header><p id="PageID" hidden>@ViewBag.PageID</p></header>
+    <header>
+        <p id="PageID" hidden>@ViewBag.PageID</p>
+    </header>
     <section>
     <nav>
         <ul>
             <div id="group-btn-lst">
             <li>
                 <form asp-controller="C002" asp-action="Index" method="post">
-                    <input type="hidden" name="language" value= @ViewBag.Language>
+                    <input type="hidden" name="LANGUAGE_SETTINGS" value= @ViewData["LANGUAGE_SETTINGS"]>
+                    <input type="hidden" name="CURRENT_USER" value= @ViewData["CURRENT_USER"]>
                     <div class="nav_container">
                         <div class="icon_position">
                             <img src="~/images/home_icon.png" alt="Home Img" id="homeImg">
@@ -29,7 +32,8 @@
             </li>
             <li>
                 <form asp-controller="C003" asp-action="Index" method="post">
-                    <input type="hidden" name="language" value= @ViewBag.Language>
+                    <input type="hidden" name="LANGUAGE_SETTINGS" value= @ViewData["LANGUAGE_SETTINGS"]>
+                    <input type="hidden" name="CURRENT_USER" value= @ViewData["CURRENT_USER"]>
                     <div class="nav_container">
                         <div class="icon_position">
                             <img src="~/images/department_icon.png" alt="Department Img" id="departmentImg">
@@ -42,7 +46,8 @@
             </li>
             <li>
                 <form asp-controller="C004" asp-action="Index" method="post">
-                    <input type="hidden" name="language" value= @ViewBag.Language>
+                    <input type="hidden" name="LANGUAGE_SETTINGS" value= @ViewData["LANGUAGE_SETTINGS"]>
+                    <input type="hidden" name="CURRENT_USER" value= @ViewData["CURRENT_USER"]>
                     <div class="nav_container">
                         <div class="icon_position">
                             <img src="~/images/account_icon.png" alt="Account Img" id="accountImg">
@@ -55,7 +60,8 @@
             </li>
             <li>
                 <form asp-controller="C005" asp-action="Index" method="post">
-                    <input type="hidden" name="language" value= @ViewBag.Language>
+                    <input type="hidden" name="LANGUAGE_SETTINGS" value= @ViewData["LANGUAGE_SETTINGS"]>
+                    <input type="hidden" name="CURRENT_USER" value= @ViewData["CURRENT_USER"]>
                     <div class="nav_container">
                         <div class="icon_position">
                             <img src="~/images/notification_icon.png" alt="Nofitication Img" id="notificationImg">
@@ -68,7 +74,8 @@
             </li>
             <li>
                 <form asp-controller="C006" asp-action="Index" method="post">
-                    <input type="hidden" name="language" value= @ViewBag.Language>
+                    <input type="hidden" name="LANGUAGE_SETTINGS" value= @ViewData["LANGUAGE_SETTINGS"]>
+                    <input type="hidden" name="CURRENT_USER" value= @ViewData["CURRENT_USER"]>
                     <div class="nav_container">
                         <div class="icon_position">
                             <img src="~/images/schedule_icon.png" alt="Schedule Img" id="scheduleImg">
@@ -81,7 +88,8 @@
             </li>
             <li>
                 <form asp-controller="C007" asp-action="Index" method="post">
-                    <input type="hidden" name="language" value= @ViewBag.Language>
+                    <input type="hidden" name="LANGUAGE_SETTINGS" value= @ViewData["LANGUAGE_SETTINGS"]>
+                    <input type="hidden" name="CURRENT_USER" value= @ViewData["CURRENT_USER"]>
                     <div class="nav_container">
                         <div class="icon_position">
                             <img src="~/images/message_icon.png" alt="Message Img" id="messageImg">
@@ -94,7 +102,8 @@
             </li>
             <li>
                 <form asp-controller="C008" asp-action="Index" method="post">
-                    <input type="hidden" name="language" value= @ViewBag.Language>
+                    <input type="hidden" name="LANGUAGE_SETTINGS" value= @ViewData["LANGUAGE_SETTINGS"]>
+                    <input type="hidden" name="CURRENT_USER" value= @ViewData["CURRENT_USER"]>
                     <div class="nav_container">
                         <div class="icon_position">
                             <img src="~/images/file_management_icon.jpeg" alt="File Management Img" id="fileManagementImg">
@@ -107,7 +116,8 @@
             </li>
             <li>
                 <form asp-controller="C009" asp-action="Index" method="post">
-                    <input type="hidden" name="language" value= @ViewBag.Language>
+                    <input type="hidden" name="LANGUAGE_SETTINGS" value= @ViewData["LANGUAGE_SETTINGS"]>
+                    <input type="hidden" name="CURRENT_USER" value= @ViewData["CURRENT_USER"]>
                     <div class="nav_container">
                         <div class="icon_position">
                             <img src="~/images/setting_icon.jpeg" alt="Setting Img" id="settingImg">
@@ -120,7 +130,7 @@
             </li>
             <li>
                 <form asp-controller="C010" asp-action="Logout" method="get">
-                    <input type="hidden" name="language" value= @ViewBag.Language>
+                    <input type="hidden" name="LANGUAGE_SETTINGS" value= @ViewData["LANGUAGE_SETTINGS"]>
                     <div class="nav_container">
                         <div class="icon_position">
                             <img src="~/images/logout_icon.jpeg" alt="Logout Img" id="logoutImg">

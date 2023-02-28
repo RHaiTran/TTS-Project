@@ -2,6 +2,7 @@ namespace TTS_SourceFiles.Models
 {
     public class M004_Account
     {
+        public string CURRENT_USER {get; set;}
         public List<M00001_NavigationName> M00001_NavigationNames{get; set;}
         public List<M00401_LabelTable> M00401_LabelTables{get; set;}
         public List<M00402_GetAllAccount> M00402_GetAllAccounts{get; set;}

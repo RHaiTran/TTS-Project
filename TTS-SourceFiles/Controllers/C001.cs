@@ -28,7 +28,8 @@ public class C001 : Controller
         M000_Layout model = new M000_Layout();
         model.M00001_NavigationNames = repo.M00001_SetLanguage(select_language);
         if(isCheck){
-            ViewBag.Language = select_language;
+            ViewData["CURRENT_USER"] = uname;
+            ViewData["LANGUAGE_SETTINGS"] = select_language;
             return View("~/Views/V002_Home/V00201_HomePage.cshtml", model);
         }
         else {

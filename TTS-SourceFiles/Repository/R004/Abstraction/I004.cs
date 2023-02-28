@@ -12,6 +12,6 @@ namespace TTS_SourceFiles.Repository
         public List<M00402_GetAllAccount> M00402_GetAllAccounts();
 
         public bool M00403_IsCheckUserExists(string uname);
-        public bool M00404_CreateNewAccount(string uname, string psw, int checkbox);
+        public bool M00404_CreateNewAccount(string uname, string psw, int checkbox, string current_user);
     }
 }
