@@ -15,12 +15,17 @@ public class C004 : Controller
     }
 
     [HttpGet]
-    public IActionResult Index(string LANGUAGE_SETTINGS, string CURRENT_USER, string temp= null)
+    public IActionResult Index(
+        string LANGUAGE_SETTINGS,
+        string CURRENT_USER,
+        string Sucess_Message_V00401_01,
+        string Error_Message_V00401_01)
     {
         R004 repo = new R004();
         M004_Account model = new M004_Account();
         ViewData["LANGUAGE_SETTINGS"] = LANGUAGE_SETTINGS;
         ViewBag.PageID = "V004";
+        ViewBag.Sucess_Message_V00401 = Sucess_Message_V00401_01;
         model.CURRENT_USER = CURRENT_USER;
         model.M00001_NavigationNames = repo.M00400_SetLabelLayout(LANGUAGE_SETTINGS);
         model.M00401_LabelTables = repo.M00401_SetLabelTable(LANGUAGE_SETTINGS);
@@ -66,6 +71,7 @@ public class C004 : Controller
         M004_Account model = new M004_Account();
         ViewData["LANGUAGE_SETTINGS"] = LANGUAGE_SETTINGS;
         ViewBag.PageID = "V004";
+        model.CURRENT_USER = CURRENT_USER;
         model.M00001_NavigationNames = repo.M00400_SetLabelLayout(LANGUAGE_SETTINGS);
         model.M00401_LabelTables = repo.M00401_SetLabelTable(LANGUAGE_SETTINGS);
         model.M00402_GetAllAccounts = repo.M00402_GetAllAccounts();
@@ -93,13 +99,31 @@ public class C004 : Controller
             }
             bool isSuccess = repo.M00404_CreateNewAccount(uname, psw, isChecked, CURRENT_USER);
             if(isSuccess) {
-                ViewBag.Sucess_Message_V00401 = "OK";
+                return RedirectToAction(
+                    "Index",
+                    "C004",
+                    new 
+                    {
+                        LANGUAGE_SETTINGS = LANGUAGE_SETTINGS, 
+                        CURRENT_USER = CURRENT_USER,
+                        Sucess_Message_V00401_01 = "Sucess"
+                    });
+            } else {
+                return RedirectToAction(
+                    "Index",
+                    "C004",
+                    new
+                    {
+                        LANGUAGE_SETTINGS = LANGUAGE_SETTINGS, 
+                        CURRENT_USER = CURRENT_USER,
+                        Error_Message_V00401_01 = "Failed"
+                    });
             }
-            return RedirectToAction("Index", "C004", new { LANGUAGE_SETTINGS = LANGUAGE_SETTINGS,  CURRENT_USER = CURRENT_USER});
         }
     }
 
-    public IActionResult BackAccountPage(string LANGUAGE_SETTINGS)
+    [HttpPost]
+    public IActionResult ReturnAccountPage(string LANGUAGE_SETTINGS)
     {
         R004 repo = new R004();
         M004_Account model = new M004_Account();
@@ -109,5 +133,31 @@ public class C004 : Controller
         model.M00401_LabelTables = repo.M00401_SetLabelTable(LANGUAGE_SETTINGS);
         model.M00402_GetAllAccounts = repo.M00402_GetAllAccounts();
         return View("~/Views/V004_Account/V00401_AccountPage.cshtml", model);
+    }
+
+    [Route("C004/DeleteAccount/LANGUAGE_SETTINGS = {LANGUAGE_SETTINGS}/CURRENT_USER = {CURRENT_USER}/ACCOUNT_ID = {ACCOUNT_ID}")]
+    public IActionResult DeleteAccount(
+        string LANGUAGE_SETTINGS,
+        string CURRENT_USER,
+        int ACCOUNT_ID)
+    {
+        R004 repo = new R004();
+        M004_Account model = new M004_Account();
+        ViewData["LANGUAGE_SETTINGS"] = LANGUAGE_SETTINGS;
+        ViewBag.PageID = "V004";
+        model.M00001_NavigationNames = repo.M00400_SetLabelLayout(LANGUAGE_SETTINGS);
+        model.M00401_LabelTables = repo.M00401_SetLabelTable(LANGUAGE_SETTINGS);
+        model.M00402_GetAllAccounts = repo.M00402_GetAllAccounts();
+        bool result = repo.M00405_DeleteAccount(ACCOUNT_ID);
+        if(result){
+            model.CURRENT_USER = CURRENT_USER;
+            ViewBag.Sucess_Message_V00402 = "Delete Account Success";
+            return View("~/Views/V004_Account/V00401_AccountPage.cshtml", model);
+        } else {
+            model.CURRENT_USER = CURRENT_USER;
+            ViewBag.Error_Message_V00402 = "Delete Account Failed";
+            return View("~/Views/V004_Account/V00401_AccountPage.cshtml", model);
+        }
+        
     }
 }

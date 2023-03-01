@@ -2,9 +2,12 @@
     Layout = "_LayoutPage";
 }
 <link rel="stylesheet" href="~/css/V00401_AccountPage.css" asp-append-version="true" />
+<script src="~/js/V00401.js" asp-append-version="true"></script>
 <div>
+<p id="LANGUAGE_SETTINGS" hidden>@ViewData["LANGUAGE_SETTINGS"]</p>
+<p id="CURRENT_USER" hidden>@Model.CURRENT_USER</p>
 <form asp-controller="C004" asp-action="CreateAccountPage" method="post">
-    <input type="hidden" name="language" value= @ViewBag.Language>
+    <input type="hidden" name="LANGUAGE_SETTINGS" value= @ViewData["LANGUAGE_SETTINGS"]>
     <input type="hidden" name="CURRENT_USER" value= @Model.CURRENT_USER>
     <button type="submit" class="btnUser btnV004_CreateUser">@Model.M00401_LabelTables[0].z_btn_create_user</a>
 </form>
@@ -12,11 +15,28 @@
 <div>
 <table>
   <tr>
+    @* Add Account Success *@
     <th colspan="8">
-      @if(ViewBag.Sucess_Message_V00401 != null) {
+      @if(@ViewBag.Sucess_Message_V00401 != null) {
         <div class="errMess">
           <span class="closeMess" onclick="this.parentElement.style.display='none';">&times;</span> 
           @ViewBag.Sucess_Message_V00401
+        </div>
+      }
+
+      @* Delete Account Success *@
+      @if(@ViewBag.Sucess_Message_V00402 != null) {
+        <div class="errMess">
+          <span class="closeMess" onclick="this.parentElement.style.display='none';">&times;</span> 
+          @ViewBag.Sucess_Message_V00402
+        </div>
+      }
+
+      @* Delete Account Failed *@
+      @if(@ViewBag.Error_Message_V00402 != null) {
+        <div class="errMess">
+          <span class="closeMess" onclick="this.parentElement.style.display='none';">&times;</span> 
+          @ViewBag.Error_Message_V00402
         </div>
       }
     </th>
@@ -30,6 +50,7 @@
     <th>@Model.M00401_LabelTables[0].z_lbl_update_date</th>
     <th>@Model.M00401_LabelTables[0].z_lbl_create_by_user</th>
     <th>@Model.M00401_LabelTables[0].z_lbl_update_by_user</th>
+    <th></th>
   </tr>
   @if (@Model.M00402_GetAllAccounts.Count > 0)
   {
@@ -61,6 +82,9 @@
         </td>
         <td>@Model.M00402_GetAllAccounts[i].z_create_by_user</td>
         <td>@Model.M00402_GetAllAccounts[i].z_update_by_user</td>
+        <td>
+          <button onclick="DeleteAccount(@Model.M00402_GetAllAccounts[i].z_account_id, 'Are you sure')">Delete Account</button>
+        </td>
       </tr>
     }
   }

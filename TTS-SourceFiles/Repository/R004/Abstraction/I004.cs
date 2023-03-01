@@ -13,5 +13,6 @@ namespace TTS_SourceFiles.Repository
 
         public bool M00403_IsCheckUserExists(string uname);
         public bool M00404_CreateNewAccount(string uname, string psw, int checkbox, string current_user);
+        public bool M00405_DeleteAccount(int ACCOUNT_ID);
     }
 }

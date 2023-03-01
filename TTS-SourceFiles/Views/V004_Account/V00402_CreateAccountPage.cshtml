@@ -2,64 +2,69 @@
     Layout = "_LayoutPage";
 }
 <link rel="stylesheet" href="~/css/V00402_CreateAccountPage.css" asp-append-version="true" />
+<script src="~/js/V00402.js" asp-append-version="true"></script>
 <div>
-<form asp-controller="C004" asp-action="CreateAccount" method="post">
-  <input type="hidden" name="LANGUAGE_SETTINGS" value= @ViewData["LANGUAGE_SETTINGS"]>
-  <input type="hidden" name="CURRENT_USER" value= @Model.CURRENT_USER>
-  <div>
-  <table>
-    <tr>
-      <th colspan="2">
-        @if(ViewBag.Error_Message_V00402_01 != null) {
-            <div class="errMess">
-              <span class="closeMess" onclick="this.parentElement.style.display='none';">&times;</span> 
-              @ViewBag.Error_Message_V00402_01
-            </div>
-        }
-        @if(ViewBag.Error_Message_V00402_02 != null) {
-            <div class="errMess">
-              <span class="closeMess" onclick="this.parentElement.style.display='none';">&times;</span> 
-              @ViewBag.Error_Message_V00402_02
-            </div>
-        }
-        @if(ViewBag.Error_Message_V004_03 != null) {
-            <div class="errMess">
-              <span class="closeMess" onclick="this.parentElement.style.display='none';">&times;</span> 
-              @ViewBag.Error_Message_V004_03
-            </div>
-        }
-      </th>
-    </tr>
-    <tr>
-      <th><label class="label-size" for="uname"><b>アカウントID</b></label></th>
-      @if(ViewData["uname"] != null) {
-        <th><input class="input-size" type="text" value= @ViewData["uname"] name="uname"></th>
-      } else {
-        <th><input class="input-size" type="text" placeholder="アカウントを入力する。" name="uname"></th>
-      }
-    </tr>
-    <tr>
-      <td><label class="label-size" for="psw"><b>パスワード</b></label></td>
-      @if(ViewData["psw"] != null) {
-        <th><input class="input-size" type="password" value= @ViewData["psw"] name="psw"></th>
-      } else {
-        <th><input class="input-size" type="password" placeholder="パスワードを入力する。" name="psw"></th>
-      }
-    </tr>
-    <tr>
-      <td><label class="label-size" for="checkbox"><b>アクティブ</b></label></td>
-      @if(ViewData["checkbox"] != null) {
-        <th><input type="checkbox" name="checkbox" checked></th>
-      } else {
-        <th><input type="checkbox" name="checkbox"></th>
-      }
-      
-    </tr>
-    <tr>
-      <td><button class="btnUser btnV00402_Add" type="submit">登録</button></td>
-      <td><button class="btnUser btnV00402_Cancel" asp-controller="C004" asp-action="BackAccountPage">キャンセル</button></td>
-    </tr>
-  </table>  
-  </div>
-</form>
+  <form asp-controller="C004" asp-action="CreateAccount" method="post">
+    <input type="hidden" name="LANGUAGE_SETTINGS" value= @ViewData["LANGUAGE_SETTINGS"]>
+    <input type="hidden" name="CURRENT_USER" value= @Model.CURRENT_USER>
+    <div>
+      <table>
+        <tr>
+          <th colspan="2">
+            @if(ViewBag.Error_Message_V00402_01 != null) {
+                <div class="errMess">
+                  <span class="closeMess" onclick="this.parentElement.style.display='none';">&times;</span> 
+                  @ViewBag.Error_Message_V00402_01
+                </div>
+            }
+            @if(ViewBag.Error_Message_V00402_02 != null) {
+                <div class="errMess">
+                  <span class="closeMess" onclick="this.parentElement.style.display='none';">&times;</span> 
+                  @ViewBag.Error_Message_V00402_02
+                </div>
+            }
+            @if(ViewBag.Error_Message_V004_03 != null) {
+                <div class="errMess">
+                  <span class="closeMess" onclick="this.parentElement.style.display='none';">&times;</span> 
+                  @ViewBag.Error_Message_V004_03
+                </div>
+            }
+          </th>
+        </tr>
+        <tr>
+          <th><label class="label-size" for="uname"><b>アカウントID</b></label></th>
+          @if(ViewData["uname"] != null) {
+            <th><input class="input-size" type="text" value= @ViewData["uname"] name="uname"></th>
+          } else {
+            <th><input class="input-size" type="text" placeholder="アカウントを入力する。" name="uname"></th>
+          }
+        </tr>
+        <tr>
+          <td><label class="label-size" for="psw"><b>パスワード</b></label></td>
+          @if(ViewData["psw"] != null) {
+            <th><input class="input-size" type="password" value= @ViewData["psw"] name="psw"></th>
+          } else {
+            <th><input class="input-size" type="password" placeholder="パスワードを入力する。" name="psw"></th>
+          }
+        </tr>
+        <tr>
+          <td><label class="label-size" for="checkbox"><b>アクティブ</b></label></td>
+          @if(ViewData["checkbox"] != null) {
+            <th><input type="checkbox" name="checkbox" checked></th>
+          } else {
+            <th><input type="checkbox" name="checkbox"></th>
+          }
+        </tr>
+      </table>
+    </div>
+    <div>
+      <button class="btnUser btnV00402_Add" type="submit">登録</button>
+    </div>
+  </form>
+</div>
+<div>
+  <form asp-controller="C004" asp-action="ReturnAccountPage" method="post">
+    <input type="hidden" name="LANGUAGE_SETTINGS" value= @ViewData["LANGUAGE_SETTINGS"]>
+    <button class="btnUser btnV00402_Cancel" type="submit">キャンセル</button>
+  </form>
 </div>

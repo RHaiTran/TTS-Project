@@ -98,7 +98,7 @@ namespace TTS_SourceFiles.Repository
             int checkbox,
             string current_user)
         {
-            bool isSuccess = true;
+            bool result = true;
             try
             {
                 using(var conn = ConnectDB.ConnectDataBase())
@@ -120,9 +120,29 @@ namespace TTS_SourceFiles.Repository
                 }
             } catch (Exception ex)
             {
-                isSuccess = false;
+                result = false;
             }
-            return isSuccess;
+            return result;
+        }
+
+        public bool M00405_DeleteAccount(int ACCOUNT_ID)
+        {
+            bool result = true;
+            try
+            {
+                using(var conn = ConnectDB.ConnectDataBase())
+                {
+                    StringBuilder sqlFormat = new StringBuilder(string.Empty);
+                    sqlFormat.Append("DELETE FROM ttsDB.dbo.z_AccountTbl WHERE z_account_id = {0} ");
+                    string sqlQuery = string.Format(sqlFormat.ToString(), ACCOUNT_ID);
+                    conn.Query(sqlQuery);
+                }
+            }
+            catch (Exception ex)
+            {
+                result = false;
+            }
+            return result;
         }
     }
 }

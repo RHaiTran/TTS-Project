@@ -19,3 +19,5 @@ CREATE TABLE z_AccountTbl (
 
 INSERT INTO z_AccountTbl (z_account_name, z_account_password, z_is_active, z_create_date, z_update_date, z_create_by_user, z_update_by_user)
 VALUES ('admin', 'admin', 1, '2023/02/26', '2023/02/26', 'super user', 'super user');
+
+DELETE FROM ttsDB.dbo.z_AccountTbl WHERE z_account_id = 3;

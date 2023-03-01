@@ -21,7 +21,7 @@ namespace TTS_SourceFiles.Common
                 languageFile = "vietnamese_resource.json";
                 break;
             default:
-                // 処理なし
+                languageFile = "japanese_resource.json";
                 break;
             }
 
