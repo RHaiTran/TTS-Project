@@ -57,5 +57,29 @@ namespace TTS_SourceFiles.Repository
             });
             return zNNLst;
         }
+
+        public List<M00102_SetLoginPageLanguage> M00102_SetLoginPageLanguage(string select_language){
+            string z_lbl_system_name = SetLanguage.GetFieldName(select_language, "Label_V001_001");
+            string z_lbl_account_email = SetLanguage.GetFieldName(select_language, "Label_V001_002");
+            string z_lbl_account_password = SetLanguage.GetFieldName(select_language, "Label_V001_003");
+            string z_lbl_input_account_email = SetLanguage.GetFieldName(select_language, "Label_V001_004");
+            string z_lbl_input_account_password = SetLanguage.GetFieldName(select_language, "Label_V001_005");
+            string z_lbl_login_button = SetLanguage.GetFieldName(select_language, "Label_V001_006");
+            string z_lbl_infor = SetLanguage.GetFieldName(select_language, "Label_V001_007");
+            string z_lbl_infor_select_language = SetLanguage.GetFieldName(select_language, "Label_V001_008");
+
+            List<M00102_SetLoginPageLanguage> m00102_SetLoginPageLanguages = new List<M00102_SetLoginPageLanguage>();
+            m00102_SetLoginPageLanguages.Add(new M00102_SetLoginPageLanguage() { 
+                z_lbl_system_name = z_lbl_system_name, 
+                z_lbl_account_email = z_lbl_account_email,
+                z_lbl_account_password = z_lbl_account_password,
+                z_lbl_input_account_email = z_lbl_input_account_email,
+                z_lbl_input_account_password = z_lbl_input_account_password,
+                z_lbl_login_button = z_lbl_login_button,
+                z_lbl_infor = z_lbl_infor,
+                z_lbl_infor_select_language = z_lbl_infor_select_language
+            });
+            return m00102_SetLoginPageLanguages;
+        }
     }
 }

@@ -15,8 +15,12 @@ public class C010 : Controller
     }
 
     [HttpGet]
-    public IActionResult Logout()
+    public IActionResult Logout(string LANGUAGE_SETTINGS)
     {
-        return View("~/Views/V001_Login/V00101_LoginPage.cshtml");
+        M001_Login model = new M001_Login();
+        R001 repo = new R001();
+        ViewBag.Set_Language = LANGUAGE_SETTINGS;
+        model.M00102_SetLoginPageLanguages = repo.M00102_SetLoginPageLanguage(LANGUAGE_SETTINGS);
+        return View("~/Views/V001_Login/V00101_LoginPage.cshtml", model);
     }
 }

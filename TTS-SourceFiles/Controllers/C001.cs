@@ -17,9 +17,23 @@ public class C001 : Controller
     [HttpGet]
     public IActionResult Index()
     {
-        return View("~/Views/V001_Login/V00101_LoginPage.cshtml");
+        M001_Login model = new M001_Login();
+        R001 repo = new R001();
+        ViewData["set_language"] = "ja";
+        model.M00102_SetLoginPageLanguages = repo.M00102_SetLoginPageLanguage("ja"); // デフォルト言語：日本語
+        return View("~/Views/V001_Login/V00101_LoginPage.cshtml", model);
     }
 
+    [HttpPost]
+    public IActionResult Index(string select_language)
+    {
+        M001_Login model = new M001_Login();
+        R001 repo = new R001();
+        ViewBag.Set_Language = select_language;
+        model.M00102_SetLoginPageLanguages = repo.M00102_SetLoginPageLanguage(select_language);
+        return View("~/Views/V001_Login/V00101_LoginPage.cshtml", model);
+    }
+    
     [HttpPost]
     public IActionResult LoginRequest(string uname, string psw, string select_language)
     {
@@ -27,6 +41,8 @@ public class C001 : Controller
         int result = repo.M00101_CheckUserInfo(uname, psw);
         M000_Layout model = new M000_Layout();
         model.M00001_NavigationNames = repo.M00001_SetLanguage(select_language);
+        ViewData["uname"] = uname;
+        ViewData["psw"] = psw;
         if(result == 1)
         {
             ViewData["CURRENT_USER"] = uname;
