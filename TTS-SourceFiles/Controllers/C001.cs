@@ -24,16 +24,21 @@ public class C001 : Controller
     public IActionResult LoginRequest(string uname, string psw, string select_language)
     {
         R001 repo = new R001();
-        bool isCheck = repo.M00101_CheckUserInfo(uname, psw);
+        int result = repo.M00101_CheckUserInfo(uname, psw);
         M000_Layout model = new M000_Layout();
         model.M00001_NavigationNames = repo.M00001_SetLanguage(select_language);
-        if(isCheck){
+        if(result == 1)
+        {
             ViewData["CURRENT_USER"] = uname;
             ViewData["LANGUAGE_SETTINGS"] = select_language;
             return View("~/Views/V002_Home/V00201_HomePage.cshtml", model);
+        } else if(result == -1)
+        {
+            ViewBag.Error_Message_V001_002 = SetLanguage.GetFieldName(select_language, "Error_Message_V001_002");
+            return View("~/Views/V001_Login/V00101_LoginPage.cshtml");
         }
         else {
-            ViewBag.Message_V001_001 = SetLanguage.GetFieldName(select_language, "Message_V001_001");
+            ViewBag.Error_Message_V001_001 = SetLanguage.GetFieldName(select_language, "Error_Message_V001_001");
             return View("~/Views/V001_Login/V00101_LoginPage.cshtml");
         }
     }

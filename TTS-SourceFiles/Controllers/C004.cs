@@ -19,13 +19,18 @@ public class C004 : Controller
         string LANGUAGE_SETTINGS,
         string CURRENT_USER,
         string Sucess_Message_V00401_01,
-        string Error_Message_V00401_01)
+        string Error_Message_V00401_01,
+        string Sucess_Message_V00401_02,
+        string Error_Message_V00401_02)
     {
         R004 repo = new R004();
         M004_Account model = new M004_Account();
         ViewData["LANGUAGE_SETTINGS"] = LANGUAGE_SETTINGS;
         ViewBag.PageID = "V004";
-        ViewBag.Sucess_Message_V00401 = Sucess_Message_V00401_01;
+        ViewBag.Sucess_Message_V00401_01 = Sucess_Message_V00401_01;
+        ViewBag.Error_Message_V00401_01 = Error_Message_V00401_01;
+        ViewBag.Sucess_Message_V00401_02 = Sucess_Message_V00401_02;
+        ViewBag.Error_Message_V00401_02 = Error_Message_V00401_02;
         model.CURRENT_USER = CURRENT_USER;
         model.M00001_NavigationNames = repo.M00400_SetLabelLayout(LANGUAGE_SETTINGS);
         model.M00401_LabelTables = repo.M00401_SetLabelTable(LANGUAGE_SETTINGS);
@@ -150,13 +155,27 @@ public class C004 : Controller
         model.M00402_GetAllAccounts = repo.M00402_GetAllAccounts();
         bool result = repo.M00405_DeleteAccount(ACCOUNT_ID);
         if(result){
-            model.CURRENT_USER = CURRENT_USER;
-            ViewBag.Sucess_Message_V00402 = "Delete Account Success";
-            return View("~/Views/V004_Account/V00401_AccountPage.cshtml", model);
+            string Sucess_Message_V00401_02 = "Delete Account Success";
+            return RedirectToAction(
+                    "Index",
+                    "C004",
+                    new 
+                    {
+                        LANGUAGE_SETTINGS = LANGUAGE_SETTINGS, 
+                        CURRENT_USER = CURRENT_USER,
+                        Sucess_Message_V00401_02 = Sucess_Message_V00401_02
+                    });
         } else {
-            model.CURRENT_USER = CURRENT_USER;
-            ViewBag.Error_Message_V00402 = "Delete Account Failed";
-            return View("~/Views/V004_Account/V00401_AccountPage.cshtml", model);
+            string Error_Message_V00401_02 = "Delete Account Failed";
+            return RedirectToAction(
+                "Index",
+                "C004",
+                new
+                {
+                    LANGUAGE_SETTINGS = LANGUAGE_SETTINGS, 
+                    CURRENT_USER = CURRENT_USER,
+                    Error_Message_V00401_02 = Error_Message_V00401_02
+                });
         }
         
     }

@@ -1,45 +1,64 @@
-table, td, th {
-    border: 1px solid;
-}
-  
-table {
-    width: 31%;
-    border-collapse: collapse;
-    font-size: 16px;
+body {
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+* {box-sizing: border-box;}
+
+.input-container {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  width: 100%;
+  margin-bottom: 10px;
+  height: 35px;
 }
 
-.label-size {
-    width: 200px;
-    font-size: 16px;
-    font-family: Arial, Helvetica, sans-serif;
-    padding-left: 5px;
+.icon {
+  padding: 10px;
+  background: midnightblue;
+  color: white;
+  min-width: 50px;
+  text-align: center;
 }
 
-.input-size {
-    width: 350px;
+.input-field {
+  width: 100%;
+  padding: 10px;
+  outline: none;
 }
 
-.btnV00402_Add {
-    background-color: white; 
-    color: black; 
-    border: 2px solid black;
-}
-  
-.btnV00402_Add:hover {
-    background-color: black;
-    color: white;
+.input-field:focus {
+  border: 2px solid midnightblue;
 }
 
-.btnV00402_Cancel {
-    background-color: white; 
-    color: black; 
-    border: 2px solid red;
+/* Set a style for all buttons */
+button {
+  background-color: midnightblue;
+  color: white;
+  padding: 10px 10px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
 }
-  
-.btnV00402_Cancel:hover {
-    background-color: red;
-    color: white;
+
+button:hover {
+  opacity:1;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.signupbtn {
+  float: left;
+  width: 49%;
+}
+
+.cancelbtn {
+  float: right;
+  width: 49%;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  background-color: #f44336;
 }
 
 .errMess {

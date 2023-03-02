@@ -7,26 +7,28 @@ namespace TTS_SourceFiles.Repository
 {
     public class R001 : I001
     {
-        public bool M00101_CheckUserInfo(string uname, string psw)
+        public int M00101_CheckUserInfo(string uname, string psw)
         {
-            bool isCheck = false;
+            int value = 0;
             using(var conn = ConnectDB.ConnectDataBase())
             {
                 StringBuilder sqlFormat = new StringBuilder(string.Empty);
                 sqlFormat.Append("SELECT * FROM ttsDB.dbo.z_AccountTbl ");
-                sqlFormat.Append("WHERE z_account_name = '{0}' AND z_account_password = '{1}'");
+                sqlFormat.Append("WHERE z_account_email = '{0}' AND z_account_password = '{1}'");
                 string sqlQuery = string.Format(sqlFormat.ToString(),uname, psw);
                 List<M00101_GetUserInfo>  M00101_GetUserInfos = conn.Query<M00101_GetUserInfo>(sqlQuery).ToList();
                 int cnt = M00101_GetUserInfos.Count();
                 if(cnt == 1) {
                     string checkIsActive = M00101_GetUserInfos[0].z_is_active.ToString();
-                    if(string.Compare(checkIsActive, "1") == 1)
+                    if(string.Compare(checkIsActive, "True") == 0)
                     {
-                        isCheck = true;
+                        value = 1;
+                    } else {
+                        value = -1;
                     }
                 }
             }
-            return isCheck;
+            return value;
         }
 
         public List<M00001_NavigationName> M00001_SetLanguage(string select_language)

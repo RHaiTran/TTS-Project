@@ -77,12 +77,12 @@ namespace TTS_SourceFiles.Repository
             using(var conn = ConnectDB.ConnectDataBase())
             {
                 StringBuilder sqlFormat = new StringBuilder(string.Empty);
-                sqlFormat.Append("SELECT z_account_name FROM ttsDB.dbo.z_AccountTbl ");
+                sqlFormat.Append("SELECT z_account_email FROM ttsDB.dbo.z_AccountTbl ");
                 List<M00402_GetAllAccount> m00402_GetAllAccounts = new List<M00402_GetAllAccount>();
                 m00402_GetAllAccounts = conn.Query<M00402_GetAllAccount>(sqlFormat.ToString()).ToList();
                 for(int i=0; i < m00402_GetAllAccounts.Count; i++)
                 {
-                    string current_uname = m00402_GetAllAccounts[i].z_account_name;
+                    string current_uname = m00402_GetAllAccounts[i].z_account_email;
                     if(string.Compare(current_uname, uname) == 0)
                     {
                         isExist = true;
@@ -104,7 +104,7 @@ namespace TTS_SourceFiles.Repository
                 using(var conn = ConnectDB.ConnectDataBase())
                 {
                     StringBuilder sqlFormat = new StringBuilder(string.Empty);
-                    sqlFormat.Append("INSERT INTO ttsDB.dbo.z_AccountTbl (z_account_name, z_account_password, z_is_active, z_create_date, z_update_date, z_create_by_user, z_update_by_user)　");
+                    sqlFormat.Append("INSERT INTO ttsDB.dbo.z_AccountTbl (z_account_email, z_account_password, z_is_active, z_create_date, z_update_date, z_create_by_user, z_update_by_user)　");
                     sqlFormat.Append("VALUES ('{0}', '{1}', {2}, '{3}', '{4}', '{5}', '{6}');");
                     string sqlQuery = string.Format(
                         sqlFormat.ToString(),

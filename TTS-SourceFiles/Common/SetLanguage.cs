@@ -37,7 +37,7 @@ namespace TTS_SourceFiles.Common
             }
             catch (Exception)
             {
-                fieldName = "Unknow";
+                fieldName = "まだ設定しない。";
             }
             finally
             {

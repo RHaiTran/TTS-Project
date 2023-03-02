@@ -24,7 +24,7 @@ namespace TTS_SourceFiles.Models
     public class M00402_GetAllAccount
     {
         public int z_account_id {get; set;}
-        public string z_account_name {get; set;}
+        public string z_account_email {get; set;}
         public string z_account_password {get; set;}
         public bool z_is_active {get; set;}
         public DateTime z_create_date {get; set;}

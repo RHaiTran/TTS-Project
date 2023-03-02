@@ -11,11 +11,18 @@
     <div class="imgcontainer">
       <h3>技術研修システム</h3>
     </div>
-    @if (ViewBag.Message_V001_001 != null)
+    @if (@ViewBag.Error_Message_V001_001 != null)
     {
       <div class="errMess">
         <span class="closeMess" onclick="this.parentElement.style.display='none';">&times;</span> 
-        @ViewBag.Message_V001_001
+        @ViewBag.Error_Message_V001_001
+      </div>
+    }
+    @if (@ViewBag.Error_Message_V001_002 != null)
+    {
+      <div class="errMess">
+        <span class="closeMess" onclick="this.parentElement.style.display='none';">&times;</span> 
+        @ViewBag.Error_Message_V001_002
       </div>
     }
     <div class="container">

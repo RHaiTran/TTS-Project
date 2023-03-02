@@ -17,26 +17,26 @@
   <tr>
     @* Add Account Success *@
     <th colspan="8">
-      @if(@ViewBag.Sucess_Message_V00401 != null) {
+      @if(@ViewBag.Sucess_Message_V00401_01 != null) {
         <div class="errMess">
           <span class="closeMess" onclick="this.parentElement.style.display='none';">&times;</span> 
-          @ViewBag.Sucess_Message_V00401
+          @ViewBag.Sucess_Message_V00401_01
         </div>
       }
 
       @* Delete Account Success *@
-      @if(@ViewBag.Sucess_Message_V00402 != null) {
+      @if(@ViewBag.Sucess_Message_V00401_02 != null) {
         <div class="errMess">
           <span class="closeMess" onclick="this.parentElement.style.display='none';">&times;</span> 
-          @ViewBag.Sucess_Message_V00402
+          @ViewBag.Sucess_Message_V00401_02
         </div>
       }
 
       @* Delete Account Failed *@
-      @if(@ViewBag.Error_Message_V00402 != null) {
+      @if(@ViewBag.Error_Message_V00401_02 != null) {
         <div class="errMess">
           <span class="closeMess" onclick="this.parentElement.style.display='none';">&times;</span> 
-          @ViewBag.Error_Message_V00402
+          @ViewBag.Error_Message_V00401_02
         </div>
       }
     </th>
@@ -58,7 +58,7 @@
     {
       <tr>
         <td>@Model.M00402_GetAllAccounts[i].z_account_id</td>
-        <td>@Model.M00402_GetAllAccounts[i].z_account_name</td>
+        <td>@Model.M00402_GetAllAccounts[i].z_account_email</td>
         <td>@Model.M00402_GetAllAccounts[i].z_account_password</td>
         <td>
           @if(@Model.M00402_GetAllAccounts[i].z_is_active)
@@ -83,7 +83,10 @@
         <td>@Model.M00402_GetAllAccounts[i].z_create_by_user</td>
         <td>@Model.M00402_GetAllAccounts[i].z_update_by_user</td>
         <td>
-          <button onclick="DeleteAccount(@Model.M00402_GetAllAccounts[i].z_account_id, 'Are you sure')">Delete Account</button>
+          @if(@Model.M00402_GetAllAccounts[i].z_account_id != 1)
+          {
+            <button onclick="DeleteAccount(@Model.M00402_GetAllAccounts[i].z_account_id, 'Are you sure')">Delete Account</button>
+          }
         </td>
       </tr>
     }

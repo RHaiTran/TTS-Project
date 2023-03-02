@@ -1,13 +1,13 @@
-// SQL SERVER
+-- SQL SERVER
 CREATE DATABASE ttsDB;
 
-// Delete table
+-- Delete table
 DROP TABLE z_AccountTbl;
 
-// Create Account table
+-- Create Account table
 CREATE TABLE z_AccountTbl (
     z_account_id int NOT NULL IDENTITY(1,1),
-    z_account_name varchar(255) NOT NULL,
+    z_account_email varchar(255) NOT NULL,
     z_account_password varchar(255) NOT NULL,
     z_is_active bit NOT NULL,
     z_create_date datetime NOT NULL,
@@ -17,7 +17,7 @@ CREATE TABLE z_AccountTbl (
     PRIMARY KEY (z_account_id)
 );
 
-INSERT INTO z_AccountTbl (z_account_name, z_account_password, z_is_active, z_create_date, z_update_date, z_create_by_user, z_update_by_user)
-VALUES ('admin', 'admin', 1, '2023/02/26', '2023/02/26', 'super user', 'super user');
+INSERT INTO z_AccountTbl (z_account_email, z_account_password, z_is_active, z_create_date, z_update_date, z_create_by_user, z_update_by_user)
+VALUES ('admin-system@tts.com', 'admin', 1, '2023/02/26', '2023/02/26', 'super user', 'super user');
 
 DELETE FROM ttsDB.dbo.z_AccountTbl WHERE z_account_id = 3;
