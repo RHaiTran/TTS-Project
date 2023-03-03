@@ -86,6 +86,7 @@ namespace TTS_SourceFiles.Repository
                     if(string.Compare(current_uname, uname) == 0)
                     {
                         isExist = true;
+                        break;
                     }
                 }
             }

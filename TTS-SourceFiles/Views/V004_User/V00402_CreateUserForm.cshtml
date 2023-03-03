@@ -3,7 +3,9 @@
 }
 <link rel="stylesheet" href="~/css/V00402_CreateAccountPage.css" asp-append-version="true" />
 <script src="~/js/V00402.js" asp-append-version="true"></script>
-<form asp-controller="C004" asp-action="CreateAccount" method="post" style="max-width:500px; padding-left: 10px">
+<p id="LANGUAGE_SETTINGS" hidden>@ViewData["LANGUAGE_SETTINGS"]</p>
+<p id="CURRENT_USER" hidden>@Model.CURRENT_USER</p>
+<form style="max-width:500px; padding-left: 10px">
   <input type="hidden" name="LANGUAGE_SETTINGS" value= @ViewData["LANGUAGE_SETTINGS"]>
   <input type="hidden" name="CURRENT_USER" value= @Model.CURRENT_USER>
   <h2>ユーザーを新規追加</h2>
@@ -19,27 +21,33 @@
         @ViewBag.Error_Message_V00402_02
       </div>
   }
-  @if(ViewBag.Error_Message_V004_03 != null) {
+  @if(ViewBag.Error_Message_V00402_03 != null) {
       <div class="errMess">
         <span class="closeMess" onclick="this.parentElement.style.display='none';">&times;</span> 
-        @ViewBag.Error_Message_V004_03
+        @ViewBag.Error_Message_V00402_03
       </div>
+  }
+  @if(ViewBag.Error_Message_V00402_04 != null) {
+    <div class="errMess">
+      <span class="closeMess" onclick="this.parentElement.style.display='none';">&times;</span> 
+      @ViewBag.Error_Message_V00402_04
+    </div>
   }
   <div class="input-container">
     <i class="fa fa-user icon"></i>
     @if(ViewData["uname"] != null) {
-      <input class="input-field" type="text" value= @ViewData["uname"] name="uname">
+      <input class="input-field" type="text" id="uname" value= @ViewData["uname"] name="uname">
     } else {
-      <input class="input-field" type="text" placeholder="ユーザー名を入力してください。" name="uname">
+      <input class="input-field" type="text" id="uname" placeholder="ユーザー名を入力してください。" name="uname">
     }
   </div>
     
   <div class="input-container">
     <i class="fa fa-key icon"></i>
     @if(ViewData["psw"] != null) {
-      <th><input class="input-field" type="password" value= @ViewData["psw"] name="psw"></th>
+      <th><input class="input-field" type="password" id="psw" value= @ViewData["psw"] name="psw"></th>
     } else {
-      <th><input class="input-field" type="password" placeholder="パスワードを入力してください。" name="psw"></th>
+      <th><input class="input-field" type="password" id="psw" placeholder="パスワードを入力してください。" name="psw"></th>
     }
   </div>
     
@@ -56,14 +64,14 @@
     <i class="fa fa-key icon"></i>
     <label for="email" style="padding: 5px"><b>アクティブ</b></label>
       @if(ViewData["checkbox"] != null) {
-        <input type="checkbox" name="checkbox" style="padding: 5px" checked>
+        <input type="checkbox" id="isActive" name="checkbox" style="padding: 5px" checked>
       } else {
-        <input type="checkbox" name="checkbox" style="padding: 5px">
+        <input type="checkbox" id="isActive" name="checkbox" style="padding: 5px">
       }
   </div>
 
   <div class="clearfix">
-    <button type="submit" class="signupbtn">Register</button>
+    <button type="button" class="signupbtn" onclick="CreateUser('Are you sure?')">Register</button>
     <button type="button" class="cancelbtn">Cancel</button>
   </div>
 </form>

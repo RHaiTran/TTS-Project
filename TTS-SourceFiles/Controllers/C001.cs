@@ -25,7 +25,7 @@ public class C001 : Controller
     }
 
     [HttpPost]
-    public IActionResult Index(string select_language)
+    public IActionResult Index(string select_language, string uname)
     {
         M001_Login model = new M001_Login();
         R001 repo = new R001();
@@ -42,7 +42,10 @@ public class C001 : Controller
         M000_Layout model = new M000_Layout();
         model.M00001_NavigationNames = repo.M00001_SetLanguage(select_language);
         ViewData["uname"] = uname;
-        ViewData["psw"] = psw;
+
+        M001_Login mLogin = new M001_Login();
+        ViewBag.Set_Language = select_language;
+        mLogin.M00102_SetLoginPageLanguages = repo.M00102_SetLoginPageLanguage(select_language);
         if(result == 1)
         {
             ViewData["CURRENT_USER"] = uname;
@@ -51,11 +54,11 @@ public class C001 : Controller
         } else if(result == -1)
         {
             ViewBag.Error_Message_V001_002 = SetLanguage.GetFieldName(select_language, "Error_Message_V001_002");
-            return View("~/Views/V001_Login/V00101_LoginPage.cshtml");
+            return View("~/Views/V001_Login/V00101_LoginPage.cshtml", mLogin);
         }
         else {
             ViewBag.Error_Message_V001_001 = SetLanguage.GetFieldName(select_language, "Error_Message_V001_001");
-            return View("~/Views/V001_Login/V00101_LoginPage.cshtml");
+            return View("~/Views/V001_Login/V00101_LoginPage.cshtml", mLogin);
         }
     }
 }

@@ -35,7 +35,7 @@ public class C004 : Controller
         model.M00001_NavigationNames = repo.M00400_SetLabelLayout(LANGUAGE_SETTINGS);
         model.M00401_LabelTables = repo.M00401_SetLabelTable(LANGUAGE_SETTINGS);
         model.M00402_GetAllAccounts = repo.M00402_GetAllAccounts();
-        return View("~/Views/V004_Account/V00401_AccountPage.cshtml", model);
+        return View("~/Views/V004_User/V00401_UserPage.cshtml", model);
     }
 
 
@@ -50,11 +50,11 @@ public class C004 : Controller
         model.M00001_NavigationNames = repo.M00400_SetLabelLayout(LANGUAGE_SETTINGS);
         model.M00401_LabelTables = repo.M00401_SetLabelTable(LANGUAGE_SETTINGS);
         model.M00402_GetAllAccounts = repo.M00402_GetAllAccounts();
-        return View("~/Views/V004_Account/V00401_AccountPage.cshtml", model);
+        return View("~/Views/V004_User/V00401_UserPage.cshtml", model);
     }
 
     [HttpPost]
-    public IActionResult CreateAccountPage(string LANGUAGE_SETTINGS, string CURRENT_USER)
+    public IActionResult CreateUserForm(string LANGUAGE_SETTINGS, string CURRENT_USER)
     {
         R004 repo = new R004();
         M004_Account model = new M004_Account();
@@ -62,13 +62,14 @@ public class C004 : Controller
         ViewBag.PageID = "V004";
         model.CURRENT_USER = CURRENT_USER;
         model.M00001_NavigationNames = repo.M00400_SetLabelLayout(LANGUAGE_SETTINGS);
-        return View("~/Views/V004_Account/V00402_CreateAccountPage.cshtml", model);
+        return View("~/Views/V004_User/V00402_CreateUserForm.cshtml", model);
     }
 
-    public IActionResult CreateAccount(
-        string uname,
-        string psw,
-        string checkbox,
+    [Route("C004/CreateUser/LANGUAGE_SETTINGS = {LANGUAGE_SETTINGS}/CURRENT_USER = {CURRENT_USER}/UNAME = {UNAME}/PSW = {PSW}/IsActive = {IsActive}")]
+    public IActionResult CreateUser(
+        string UNAME,
+        string PSW,
+        string IsActive,
         string CURRENT_USER,
         string LANGUAGE_SETTINGS)
     {
@@ -80,29 +81,46 @@ public class C004 : Controller
         model.M00001_NavigationNames = repo.M00400_SetLabelLayout(LANGUAGE_SETTINGS);
         model.M00401_LabelTables = repo.M00401_SetLabelTable(LANGUAGE_SETTINGS);
         model.M00402_GetAllAccounts = repo.M00402_GetAllAccounts();
-        ViewData["uname"] = uname;
-        ViewData["psw"] = psw;
-        ViewData["checkbox"] = checkbox;
-        if(string.IsNullOrEmpty(uname)) {
+        if(string.Compare(UNAME, "res") == 0) {
+            ViewData["uname"] = null;
+        } else {
+            ViewData["uname"] = UNAME;
+        }
+
+        if(string.Compare(PSW, "res") == 0) {
+            ViewData["psw"] = null;
+        } else {
+            ViewData["psw"] = PSW;
+        }
+        
+        ViewData["checkbox"] = IsActive;
+        if(string.Compare(UNAME, "res") == 0) 
+        {
             ViewBag.Error_Message_V00402_01 = "アカウント名を入力してください。";
-            return View("~/Views/V004_Account/V00402_CreateAccountPage.cshtml", model);
-        }
-        if(string.IsNullOrEmpty(psw) || psw.Length < 4){
+            return View("~/Views/V004_User/V00402_CreateUserForm.cshtml", model);
+        } 
+        else if (string.Compare(UNAME.Substring(UNAME.Length-8,8), "@tts.com") != 0)
+        {
+            ViewBag.Error_Message_V00402_04 = "メールは検証されていません。フォマット[@tts.com]";
+            return View("~/Views/V004_User/V00402_CreateUserForm.cshtml", model);
+        } 
+        else if (PSW.Length < 4)
+        {
             ViewBag.Error_Message_V00402_02 = "パスワードは 4 文字以上である必要があります。";
-            return View("~/Views/V004_Account/V00402_CreateAccountPage.cshtml", model);
-        }
-        bool isExist = repo.M00403_IsCheckUserExists(uname);
-        if(isExist){
-            ViewBag.Error_Message_V004_03 = "アカウント名は存在しています。";
-            return View("~/Views/V004_Account/V00402_CreateAccountPage.cshtml", model);
+            return View("~/Views/V004_User/V00402_CreateUserForm.cshtml", model);
+        } 
+        else if(repo.M00403_IsCheckUserExists(UNAME))
+        {
+            ViewBag.Error_Message_V00402_03 = "アカウント名は存在しています。";
+            return View("~/Views/V004_User/V00402_CreateUserForm.cshtml", model);
         }
         else
         {
-            int isChecked = 0;
-            if(checkbox != null) {
-                isChecked = 1;
+            int USER_STATUS = 0;
+            if(IsActive == "true") {
+                USER_STATUS = 1;
             }
-            bool isSuccess = repo.M00404_CreateNewAccount(uname, psw, isChecked, CURRENT_USER);
+            bool isSuccess = repo.M00404_CreateNewAccount(UNAME, PSW, USER_STATUS, CURRENT_USER);
             if(isSuccess) {
                 return RedirectToAction(
                     "Index",
@@ -137,11 +155,11 @@ public class C004 : Controller
         model.M00001_NavigationNames = repo.M00400_SetLabelLayout(LANGUAGE_SETTINGS);
         model.M00401_LabelTables = repo.M00401_SetLabelTable(LANGUAGE_SETTINGS);
         model.M00402_GetAllAccounts = repo.M00402_GetAllAccounts();
-        return View("~/Views/V004_Account/V00401_AccountPage.cshtml", model);
+        return View("~/Views/V004_User/V00401_UserPage.cshtml", model);
     }
 
-    [Route("C004/DeleteAccount/LANGUAGE_SETTINGS = {LANGUAGE_SETTINGS}/CURRENT_USER = {CURRENT_USER}/ACCOUNT_ID = {ACCOUNT_ID}")]
-    public IActionResult DeleteAccount(
+    [Route("C004/DeleteUser/LANGUAGE_SETTINGS = {LANGUAGE_SETTINGS}/CURRENT_USER = {CURRENT_USER}/ACCOUNT_ID = {ACCOUNT_ID}")]
+    public IActionResult DeleteUser(
         string LANGUAGE_SETTINGS,
         string CURRENT_USER,
         int ACCOUNT_ID)

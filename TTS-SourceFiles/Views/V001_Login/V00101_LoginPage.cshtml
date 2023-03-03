@@ -31,17 +31,12 @@
       @if(@ViewData["uname"] != null) {
         <input type="text" value= @ViewData["uname"] name="uname" required>
       } else {
-       <input type="text" placeholder = @Model.M00102_SetLoginPageLanguages[0].z_lbl_input_account_email name="uname" required>
+       <input type="text" placeholder="@Model.M00102_SetLoginPageLanguages[0].z_lbl_input_account_email" name="uname" required>
       }
 
       <label for="psw"><b>@Model.M00102_SetLoginPageLanguages[0].z_lbl_account_password</b></label>
-      @if(@ViewData["psw"] != null) {
-        <input type="password" value= @ViewData["psw"] name="psw" required>
-      } else {
-       <input type="password" placeholder="@Model.M00102_SetLoginPageLanguages[0].z_lbl_input_account_password" name="psw" required>
-      }
-      
-          
+      <input type="password" placeholder="@Model.M00102_SetLoginPageLanguages[0].z_lbl_input_account_password" name="psw" required>
+
       <button type="submit">@Model.M00102_SetLoginPageLanguages[0].z_lbl_login_button</button>
       <label>
         <input type="checkbox" checked="checked" name="remember">@Model.M00102_SetLoginPageLanguages[0].z_lbl_infor
@@ -51,12 +46,12 @@
   <form asp-controller="C001" asp-action="Index" method="post">
     <div class="container" style="background-color:#f1f1f1">
       @if(@ViewBag.Set_Language == "ja") {
-        <select name="select_language" id="select_language">
+        <select name="select_language" id="select_language" style="width: 100px; height: 30px">
           <option value="ja" onclick= "form.submit()" selected>日本語</option>
           <option value="en" onclick= "form.submit()">English</option>
         </select>
       } else {
-          <select name="select_language" id="select_language">
+          <select name="select_language" id="select_language" style="width: 100px; height: 30px">
           <option value="ja" onclick= "form.submit()">日本語</option>
           <option value="en" onclick= "form.submit()" selected>English</option>
         </select>

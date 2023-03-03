@@ -6,7 +6,7 @@
 <div>
 <p id="LANGUAGE_SETTINGS" hidden>@ViewData["LANGUAGE_SETTINGS"]</p>
 <p id="CURRENT_USER" hidden>@Model.CURRENT_USER</p>
-<form asp-controller="C004" asp-action="CreateAccountPage" method="post">
+<form asp-controller="C004" asp-action="CreateUserForm" method="post">
     <input type="hidden" name="LANGUAGE_SETTINGS" value= @ViewData["LANGUAGE_SETTINGS"]>
     <input type="hidden" name="CURRENT_USER" value= @Model.CURRENT_USER>
     <button type="submit" class="btnUser btnV004_CreateUser">@Model.M00401_LabelTables[0].z_btn_create_user</a>
@@ -85,7 +85,7 @@
         <td>
           @if(@Model.M00402_GetAllAccounts[i].z_account_id != 1)
           {
-            <button onclick="DeleteAccount(@Model.M00402_GetAllAccounts[i].z_account_id, 'Are you sure')">Delete Account</button>
+            <button onclick="DeleteUser(@Model.M00402_GetAllAccounts[i].z_account_id, 'Are you sure')">Delete Account</button>
           }
         </td>
       </tr>
