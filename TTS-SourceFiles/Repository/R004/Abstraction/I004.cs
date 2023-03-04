@@ -16,5 +16,7 @@ namespace TTS_SourceFiles.Repository
             string current_user,
             string user_role);
         public bool M00405_DeleteAccount(int ACCOUNT_ID);
+
+        public List<M00403_LabelCreateUserForm> M00403_LabelCreateUserForms(string select_language);
     }
 }

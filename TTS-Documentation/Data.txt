@@ -22,3 +22,15 @@ INSERT INTO z_UserTable (z_user_email, z_user_password, z_user_role, z_is_active
 VALUES ('admin-system@tts.com', 'admin', 'manager',1, '2023/02/26', '2023/02/26', 'super user', 'super user');
 
 DELETE FROM ttsDB.dbo.z_UserTable WHERE z_user_id = 3;
+
+-- Create Notifice table
+CREATE TABLE z_NotificeTable (
+    z_notifice_id int NOT NULL IDENTITY(1,1),
+    z_notifice_title nvarchar(100) NOT NULL,
+    z_notifice_content text NOT NULL,
+    z_create_notifice_date datetime NOT NULL,
+    z_update_notifice_date datetime NOT NULL,
+    z_create_notifice_by_user nvarchar(255) NOT NULL,
+    z_update_notifice_by_user nvarchar(255) NOT NULL
+    PRIMARY KEY (z_notifice_id)
+);

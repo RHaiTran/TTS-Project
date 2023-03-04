@@ -150,5 +150,27 @@ namespace TTS_SourceFiles.Repository
             }
             return result;
         }
+
+        public List<M00403_LabelCreateUserForm> M00403_LabelCreateUserForms(string select_language)
+        {
+            string z_lbl_create_user_form = SetLanguage.GetFieldName(select_language, "Label_V004_02_001");
+            string z_lbl_request_user_name = SetLanguage.GetFieldName(select_language, "Label_V004_02_002");
+            string z_lbl_request_user_password = SetLanguage.GetFieldName(select_language, "Label_V004_02_003");
+            string z_lbl_is_active = SetLanguage.GetFieldName(select_language, "Label_V004_02_004");
+            string z_lbl_button_create = SetLanguage.GetFieldName(select_language, "Label_V004_02_005");
+            string z_lbl_button_cancel = SetLanguage.GetFieldName(select_language, "Label_V004_02_006");
+            string z_message_add_confirm = SetLanguage.GetFieldName(select_language, "Label_V004_02_007");
+            List<M00403_LabelCreateUserForm> m00403_LabelCreateUserForms = new List<M00403_LabelCreateUserForm>();
+            m00403_LabelCreateUserForms.Add(new M00403_LabelCreateUserForm() { 
+                z_lbl_create_user_form = z_lbl_create_user_form, 
+                z_lbl_request_user_name = z_lbl_request_user_name,
+                z_lbl_request_user_password = z_lbl_request_user_password,
+                z_lbl_is_active = z_lbl_is_active,
+                z_lbl_button_create = z_lbl_button_create,
+                z_lbl_button_cancel = z_lbl_button_cancel,
+                z_message_add_confirm = z_message_add_confirm
+            });
+            return m00403_LabelCreateUserForms;
+        }
     }
 }

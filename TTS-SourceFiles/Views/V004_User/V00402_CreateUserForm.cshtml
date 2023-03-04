@@ -5,10 +5,11 @@
 <script src="~/js/V00402.js" asp-append-version="true"></script>
 <p id="LANGUAGE_SETTINGS" hidden>@ViewData["LANGUAGE_SETTINGS"]</p>
 <p id="CURRENT_USER" hidden>@Model.CURRENT_USER</p>
+<p id="MESSAGE_ADD_COMFIRM" hidden>@Model.M00403_LabelCreateUserForms[0].z_message_add_confirm</p>
 <form style="max-width:500px; padding-left: 10px">
   <input type="hidden" name="LANGUAGE_SETTINGS" value= @ViewData["LANGUAGE_SETTINGS"]>
   <input type="hidden" name="CURRENT_USER" value= @Model.CURRENT_USER>
-  <h2>ユーザーを新規追加</h2>
+  <h2>@Model.M00403_LabelCreateUserForms[0].z_lbl_create_user_form</h2>
   <div style="padding-bottom: 5px;">
   @if(ViewBag.Error_Message_V00402_01 != null) {
     <div class="errMess">
@@ -40,7 +41,7 @@
     @if(ViewData["uname"] != null) {
       <input class="input-field" type="text" id="uname" value= @ViewData["uname"] name="uname">
     } else {
-      <input class="input-field" type="text" id="uname" placeholder="ユーザー名を入力してください。" name="uname">
+      <input class="input-field" type="text" id="uname" placeholder="@Model.M00403_LabelCreateUserForms[0].z_lbl_request_user_name" name="uname">
     }
   </div>
     
@@ -49,7 +50,7 @@
     @if(ViewData["psw"] != null) {
       <th><input class="input-field" type="password" id="psw" value= @ViewData["psw"] name="psw"></th>
     } else {
-      <th><input class="input-field" type="password" id="psw" placeholder="パスワードを入力してください。" name="psw"></th>
+      <th><input class="input-field" type="password" id="psw" placeholder="@Model.M00403_LabelCreateUserForms[0].z_lbl_request_user_password" name="psw"></th>
     }
   </div>
     
@@ -64,7 +65,7 @@
     
   <div class="input-container">
     <i class="fa fa-key icon"></i>
-    <label for="email" style="padding: 5px"><b>アクティブ</b></label>
+    <label for="email" style="padding: 5px"><b>@Model.M00403_LabelCreateUserForms[0].z_lbl_is_active</b></label>
       @if(ViewData["checkbox"] != null) {
         <input type="checkbox" id="isActive" name="checkbox" style="padding: 5px" checked>
       } else {
@@ -73,7 +74,7 @@
   </div>
 
   <div class="clearfix">
-    <button type="button" class="signupbtn" onclick="CreateUser('Are you sure?')">登録</button>
-    <button type="button" class="cancelbtn" onclick="ReturnUserPage()">キャンセル</button>
+    <button type="button" class="signupbtn" onclick="CreateUser()">@Model.M00403_LabelCreateUserForms[0].z_lbl_button_create</button>
+    <button type="button" class="cancelbtn" onclick="ReturnUserPage()">@Model.M00403_LabelCreateUserForms[0].z_lbl_button_cancel</button>
   </div>
 </form>

@@ -2,7 +2,8 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
-function CreateUser(Message) {
+function CreateUser() {
+    var MESSAGE_ADD_COMFIRM = document.getElementById('MESSAGE_ADD_COMFIRM').innerHTML;
     var LANGUAGE_SETTINGS = document.getElementById('LANGUAGE_SETTINGS').innerHTML;
     var CURRENT_USER = document.getElementById('CURRENT_USER').innerHTML;
     var UNAME = document.getElementById("uname").value;
@@ -10,8 +11,8 @@ function CreateUser(Message) {
     var PSW = document.getElementById("psw").value;
     if(PSW === '') { PSW = 'res'; }
     var IsActive = document.getElementById("isActive").checked;
-    var USER_ROLE = document.getElementById("user_role").vale;
-    if (confirm(Message) == true) {
+    var USER_ROLE = document.getElementById("user_role").value;
+    if (confirm(MESSAGE_ADD_COMFIRM) == true) {
       window.location.href = 
       '/C004/CreateUser'
       + '/LANGUAGE_SETTINGS = ' + LANGUAGE_SETTINGS

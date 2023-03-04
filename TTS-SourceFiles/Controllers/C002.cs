@@ -15,13 +15,21 @@ public class C002 : Controller
     }
 
     [HttpPost]
-    public IActionResult Index(string LANGUAGE_SETTINGS)
+    public IActionResult Index(
+        string LANGUAGE_SETTINGS,
+        string CURRENT_USER)
     {
-        R001 repo = new R001();
-        M000_Layout model = new M000_Layout();
+        R002 repo002 = new R002();
+        M002_Home modelHome = new M002_Home(); 
         ViewData["LANGUAGE_SETTINGS"] = LANGUAGE_SETTINGS;
+        modelHome.CURRENT_USER = CURRENT_USER;
         ViewBag.PageID = "V002";
-        model.M00001_NavigationNames = repo.M00001_SetLanguage(LANGUAGE_SETTINGS);
-        return View("~/Views/V002_Home/V00201_HomePage.cshtml", model);
+        modelHome.M00001_NavigationNames = repo002.M00200_SetLabelLayout(LANGUAGE_SETTINGS);
+        return View("~/Views/V002_Home/V00201_HomePage.cshtml", modelHome);
+    }
+
+    public IActionResult CreateNotificationPage()
+    {
+        return View("~/Views/V002_Home/V00202_CreateNotificationForm.cshtml");
     }
 }

@@ -1,0 +1,22 @@
+#notifice {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+#notifice td, #notifice th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+  
+#notifice tr:nth-child(even){background-color: #f2f2f2;}
+
+#notifice tr:hover {background-color: #ddd;}
+
+#notifice th {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: left;
+    background-color: midnightblue;
+    color: white;
+}

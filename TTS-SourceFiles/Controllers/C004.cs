@@ -24,7 +24,7 @@ public class C004 : Controller
         string Error_Message_V00401_02)
     {
         R004 repo = new R004();
-        M004_Account model = new M004_Account();
+        M004_User model = new M004_User();
         ViewData["LANGUAGE_SETTINGS"] = LANGUAGE_SETTINGS;
         ViewBag.PageID = "V004";
         ViewBag.Sucess_Message_V00401_01 = Sucess_Message_V00401_01;
@@ -43,7 +43,7 @@ public class C004 : Controller
     public IActionResult Index(string LANGUAGE_SETTINGS, string CURRENT_USER)
     {
         R004 repo = new R004();
-        M004_Account model = new M004_Account();
+        M004_User model = new M004_User();
         ViewData["LANGUAGE_SETTINGS"] = LANGUAGE_SETTINGS;
         ViewBag.PageID = "V004";
         model.CURRENT_USER = CURRENT_USER;
@@ -57,11 +57,12 @@ public class C004 : Controller
     public IActionResult CreateUserForm(string LANGUAGE_SETTINGS, string CURRENT_USER)
     {
         R004 repo = new R004();
-        M004_Account model = new M004_Account();
+        M004_User model = new M004_User();
         ViewData["LANGUAGE_SETTINGS"] = LANGUAGE_SETTINGS;
         ViewBag.PageID = "V004";
         model.CURRENT_USER = CURRENT_USER;
         model.M00001_NavigationNames = repo.M00400_SetLabelLayout(LANGUAGE_SETTINGS);
+        model.M00403_LabelCreateUserForms = repo.M00403_LabelCreateUserForms(LANGUAGE_SETTINGS);
         return View("~/Views/V004_User/V00402_CreateUserForm.cshtml", model);
     }
 
@@ -75,7 +76,7 @@ public class C004 : Controller
         string LANGUAGE_SETTINGS)
     {
         R004 repo = new R004();
-        M004_Account model = new M004_Account();
+        M004_User model = new M004_User();
         ViewData["LANGUAGE_SETTINGS"] = LANGUAGE_SETTINGS;
         ViewBag.PageID = "V004";
         model.CURRENT_USER = CURRENT_USER;
@@ -93,26 +94,37 @@ public class C004 : Controller
         } else {
             ViewData["psw"] = PSW;
         }
+
+        if(IsActive == "true")
+        {
+            ViewData["checkbox"] = IsActive;
+        } else {
+            ViewData["checkbox"] = null;
+        }
         
-        ViewData["checkbox"] = IsActive;
+        
         if(string.Compare(UNAME, "res") == 0) 
         {
-            ViewBag.Error_Message_V00402_01 = "アカウント名を入力してください。";
+            ViewBag.Error_Message_V00402_01 = SetLanguage.GetFieldName(LANGUAGE_SETTINGS, "Error_Message_V00402_01");;
+            model.M00403_LabelCreateUserForms = repo.M00403_LabelCreateUserForms(LANGUAGE_SETTINGS);
             return View("~/Views/V004_User/V00402_CreateUserForm.cshtml", model);
         } 
-        else if (string.Compare(UNAME.Substring(UNAME.Length-8,8), "@tts.com") != 0)
+        else if (UNAME.Length < 9 || string.Compare(UNAME.Substring(UNAME.Length-8,8), "@tts.com") != 0)
         {
-            ViewBag.Error_Message_V00402_04 = "メールは検証されていません。フォマット[@tts.com]";
+            ViewBag.Error_Message_V00402_04 = SetLanguage.GetFieldName(LANGUAGE_SETTINGS, "Error_Message_V00402_04");;
+            model.M00403_LabelCreateUserForms = repo.M00403_LabelCreateUserForms(LANGUAGE_SETTINGS);
             return View("~/Views/V004_User/V00402_CreateUserForm.cshtml", model);
         } 
         else if (PSW.Length < 4)
         {
-            ViewBag.Error_Message_V00402_02 = "パスワードは 4 文字以上である必要があります。";
+            ViewBag.Error_Message_V00402_02 = SetLanguage.GetFieldName(LANGUAGE_SETTINGS, "Error_Message_V00402_02");;
+            model.M00403_LabelCreateUserForms = repo.M00403_LabelCreateUserForms(LANGUAGE_SETTINGS);
             return View("~/Views/V004_User/V00402_CreateUserForm.cshtml", model);
         } 
         else if(repo.M00403_IsCheckUserExists(UNAME))
         {
-            ViewBag.Error_Message_V00402_03 = "アカウント名は存在しています。";
+            ViewBag.Error_Message_V00402_03 = SetLanguage.GetFieldName(LANGUAGE_SETTINGS, "Error_Message_V00402_03");;
+            model.M00403_LabelCreateUserForms = repo.M00403_LabelCreateUserForms(LANGUAGE_SETTINGS);
             return View("~/Views/V004_User/V00402_CreateUserForm.cshtml", model);
         }
         else
@@ -152,7 +164,7 @@ public class C004 : Controller
         string CURRENT_USER)
     {
         R004 repo = new R004();
-        M004_Account model = new M004_Account();
+        M004_User model = new M004_User();
         ViewData["LANGUAGE_SETTINGS"] = LANGUAGE_SETTINGS;
         model.CURRENT_USER = CURRENT_USER;
         ViewBag.PageID = "V004";
@@ -169,7 +181,7 @@ public class C004 : Controller
         int ACCOUNT_ID)
     {
         R004 repo = new R004();
-        M004_Account model = new M004_Account();
+        M004_User model = new M004_User();
         ViewData["LANGUAGE_SETTINGS"] = LANGUAGE_SETTINGS;
         ViewBag.PageID = "V004";
         model.M00001_NavigationNames = repo.M00400_SetLabelLayout(LANGUAGE_SETTINGS);

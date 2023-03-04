@@ -34,10 +34,14 @@ namespace TTS_SourceFiles.Common
 
                 var configuration = configurationBuilder.Build();
                 fieldName = configuration.GetSection("Resource").GetValue<string>(fieldID);
+                if(string.IsNullOrEmpty(fieldName))
+                {
+                    fieldName = "更新中";
+                };
             }
             catch (Exception)
             {
-                fieldName = "まだ設定しない。";
+                fieldName = "更新中";
             }
             finally
             {

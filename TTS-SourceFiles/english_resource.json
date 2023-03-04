@@ -25,6 +25,17 @@
       "Label_V004_006": "Updated date",
       "Label_V004_007": "Creator",
       "Label_V004_008": "Updater",
-      "Button_V004_001": "Create New User"
+      "Button_V004_001": "Create New User",
+      "Label_V004_02_001": "Create New User",
+      "Label_V004_02_002": "Please enter your username.",
+      "Label_V004_02_003": "Please enter your password.",
+      "Label_V004_02_004": "Active",
+      "Label_V004_02_005": "Add",
+      "Label_V004_02_006": "Cancel",
+      "Label_V004_02_007": "This user will be add. Are you sure?",
+      "Error_Message_V00402_01": "Username cannot be blank.",
+      "Error_Message_V00402_02": "Password must be at least 4 characters.",
+      "Error_Message_V00402_03": "Account name exists.",
+      "Error_Message_V00402_04": "Email is not verified."
     }
 }
