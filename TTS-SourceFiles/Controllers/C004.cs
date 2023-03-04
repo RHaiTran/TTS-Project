@@ -34,7 +34,7 @@ public class C004 : Controller
         model.CURRENT_USER = CURRENT_USER;
         model.M00001_NavigationNames = repo.M00400_SetLabelLayout(LANGUAGE_SETTINGS);
         model.M00401_LabelTables = repo.M00401_SetLabelTable(LANGUAGE_SETTINGS);
-        model.M00402_GetAllAccounts = repo.M00402_GetAllAccounts();
+        model.M00402_GetAllUsers = repo.M00402_GetAllUsers();
         return View("~/Views/V004_User/V00401_UserPage.cshtml", model);
     }
 
@@ -49,7 +49,7 @@ public class C004 : Controller
         model.CURRENT_USER = CURRENT_USER;
         model.M00001_NavigationNames = repo.M00400_SetLabelLayout(LANGUAGE_SETTINGS);
         model.M00401_LabelTables = repo.M00401_SetLabelTable(LANGUAGE_SETTINGS);
-        model.M00402_GetAllAccounts = repo.M00402_GetAllAccounts();
+        model.M00402_GetAllUsers = repo.M00402_GetAllUsers();
         return View("~/Views/V004_User/V00401_UserPage.cshtml", model);
     }
 
@@ -65,11 +65,12 @@ public class C004 : Controller
         return View("~/Views/V004_User/V00402_CreateUserForm.cshtml", model);
     }
 
-    [Route("C004/CreateUser/LANGUAGE_SETTINGS = {LANGUAGE_SETTINGS}/CURRENT_USER = {CURRENT_USER}/UNAME = {UNAME}/PSW = {PSW}/IsActive = {IsActive}")]
+    [Route("C004/CreateUser/LANGUAGE_SETTINGS = {LANGUAGE_SETTINGS}/CURRENT_USER = {CURRENT_USER}/UNAME = {UNAME}/PSW = {PSW}/IsActive = {IsActive}/USER_ROLE = {USER_ROLE}")]
     public IActionResult CreateUser(
         string UNAME,
         string PSW,
         string IsActive,
+        string USER_ROLE,
         string CURRENT_USER,
         string LANGUAGE_SETTINGS)
     {
@@ -80,7 +81,7 @@ public class C004 : Controller
         model.CURRENT_USER = CURRENT_USER;
         model.M00001_NavigationNames = repo.M00400_SetLabelLayout(LANGUAGE_SETTINGS);
         model.M00401_LabelTables = repo.M00401_SetLabelTable(LANGUAGE_SETTINGS);
-        model.M00402_GetAllAccounts = repo.M00402_GetAllAccounts();
+        model.M00402_GetAllUsers = repo.M00402_GetAllUsers();
         if(string.Compare(UNAME, "res") == 0) {
             ViewData["uname"] = null;
         } else {
@@ -120,7 +121,7 @@ public class C004 : Controller
             if(IsActive == "true") {
                 USER_STATUS = 1;
             }
-            bool isSuccess = repo.M00404_CreateNewAccount(UNAME, PSW, USER_STATUS, CURRENT_USER);
+            bool isSuccess = repo.M00404_CreateNewAccount(UNAME, PSW, USER_STATUS, CURRENT_USER, USER_ROLE);
             if(isSuccess) {
                 return RedirectToAction(
                     "Index",
@@ -144,17 +145,20 @@ public class C004 : Controller
             }
         }
     }
-
-    [HttpPost]
-    public IActionResult ReturnAccountPage(string LANGUAGE_SETTINGS)
+    
+    [Route("C004/ReturnUserPage/LANGUAGE_SETTINGS = {LANGUAGE_SETTINGS}/CURRENT_USER = {CURRENT_USER}")]
+    public IActionResult ReturnUserPage(
+        string LANGUAGE_SETTINGS,
+        string CURRENT_USER)
     {
         R004 repo = new R004();
         M004_Account model = new M004_Account();
         ViewData["LANGUAGE_SETTINGS"] = LANGUAGE_SETTINGS;
+        model.CURRENT_USER = CURRENT_USER;
         ViewBag.PageID = "V004";
         model.M00001_NavigationNames = repo.M00400_SetLabelLayout(LANGUAGE_SETTINGS);
         model.M00401_LabelTables = repo.M00401_SetLabelTable(LANGUAGE_SETTINGS);
-        model.M00402_GetAllAccounts = repo.M00402_GetAllAccounts();
+        model.M00402_GetAllUsers = repo.M00402_GetAllUsers();
         return View("~/Views/V004_User/V00401_UserPage.cshtml", model);
     }
 
@@ -170,7 +174,7 @@ public class C004 : Controller
         ViewBag.PageID = "V004";
         model.M00001_NavigationNames = repo.M00400_SetLabelLayout(LANGUAGE_SETTINGS);
         model.M00401_LabelTables = repo.M00401_SetLabelTable(LANGUAGE_SETTINGS);
-        model.M00402_GetAllAccounts = repo.M00402_GetAllAccounts();
+        model.M00402_GetAllUsers = repo.M00402_GetAllUsers();
         bool result = repo.M00405_DeleteAccount(ACCOUNT_ID);
         if(result){
             string Sucess_Message_V00401_02 = "Delete Account Success";

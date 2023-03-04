@@ -1,7 +1,7 @@
 @{
     Layout = "_LayoutPage";
 }
-<link rel="stylesheet" href="~/css/V00402_CreateAccountPage.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/V00402_CreateUserPage.css" asp-append-version="true" />
 <script src="~/js/V00402.js" asp-append-version="true"></script>
 <p id="LANGUAGE_SETTINGS" hidden>@ViewData["LANGUAGE_SETTINGS"]</p>
 <p id="CURRENT_USER" hidden>@Model.CURRENT_USER</p>
@@ -9,6 +9,7 @@
   <input type="hidden" name="LANGUAGE_SETTINGS" value= @ViewData["LANGUAGE_SETTINGS"]>
   <input type="hidden" name="CURRENT_USER" value= @Model.CURRENT_USER>
   <h2>ユーザーを新規追加</h2>
+  <div style="padding-bottom: 5px;">
   @if(ViewBag.Error_Message_V00402_01 != null) {
     <div class="errMess">
       <span class="closeMess" onclick="this.parentElement.style.display='none';">&times;</span> 
@@ -33,6 +34,7 @@
       @ViewBag.Error_Message_V00402_04
     </div>
   }
+  </div>
   <div class="input-container">
     <i class="fa fa-user icon"></i>
     @if(ViewData["uname"] != null) {
@@ -53,10 +55,10 @@
     
   <div class="input-container">
     <i class="fa fa-key icon"></i>
-    <select name="cars" id="cars" style="width: 500px">
-    <option value="volvo">Manager</option>
-    <option value="saab">Leader</option>
-    <option value="opel">Member</option>
+    <select name="user_role" id="user_role" style="width: 500px">
+    <option value="manager">Manager</option>
+    <option value="leader">Leader</option>
+    <option value="member">Member</option>
     </select>
   </div>
     
@@ -71,7 +73,7 @@
   </div>
 
   <div class="clearfix">
-    <button type="button" class="signupbtn" onclick="CreateUser('Are you sure?')">Register</button>
-    <button type="button" class="cancelbtn">Cancel</button>
+    <button type="button" class="signupbtn" onclick="CreateUser('Are you sure?')">登録</button>
+    <button type="button" class="cancelbtn" onclick="ReturnUserPage()">キャンセル</button>
   </div>
 </form>

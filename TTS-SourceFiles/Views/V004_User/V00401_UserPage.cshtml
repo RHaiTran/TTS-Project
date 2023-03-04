@@ -42,9 +42,10 @@
     </th>
   </tr>
   <tr>
-    <th>@Model.M00401_LabelTables[0].z_lbl_account_id</th>
-    <th>@Model.M00401_LabelTables[0].z_lbl_account_name</th>
-    <th>@Model.M00401_LabelTables[0].z_lbl_account_password</th>
+    <th>@Model.M00401_LabelTables[0].z_lbl_user_id</th>
+    <th>@Model.M00401_LabelTables[0].z_lbl_user_name</th>
+    <th>@Model.M00401_LabelTables[0].z_lbl_user_password</th>
+    <th>@Model.M00401_LabelTables[0].z_lbl_user_role</th>
     <th>@Model.M00401_LabelTables[0].z_lbl_is_active</th>
     <th>@Model.M00401_LabelTables[0].z_lbl_create_date</th>
     <th>@Model.M00401_LabelTables[0].z_lbl_update_date</th>
@@ -52,16 +53,17 @@
     <th>@Model.M00401_LabelTables[0].z_lbl_update_by_user</th>
     <th></th>
   </tr>
-  @if (@Model.M00402_GetAllAccounts.Count > 0)
+  @if (@Model.M00402_GetAllUsers.Count > 0)
   {
-    @for (int i = 0; i < @Model.M00402_GetAllAccounts.Count; i++) 
+    @for (int i = 0; i < @Model.M00402_GetAllUsers.Count; i++) 
     {
       <tr>
-        <td>@Model.M00402_GetAllAccounts[i].z_account_id</td>
-        <td>@Model.M00402_GetAllAccounts[i].z_account_email</td>
-        <td>@Model.M00402_GetAllAccounts[i].z_account_password</td>
+        <td>@Model.M00402_GetAllUsers[i].z_user_id</td>
+        <td>@Model.M00402_GetAllUsers[i].z_user_email</td>
+        <td>@Model.M00402_GetAllUsers[i].z_user_password</td>
+        <td>@Model.M00402_GetAllUsers[i].z_user_role</td>
         <td>
-          @if(@Model.M00402_GetAllAccounts[i].z_is_active)
+          @if(@Model.M00402_GetAllUsers[i].z_is_active)
           {
             <input type="checkbox" checked disabled> 
           } else {
@@ -70,22 +72,22 @@
         </td>
         <td>
           @string.Format("{0}/{1}/{2}",
-          @Model.M00402_GetAllAccounts[i].z_create_date.Year,
-          @Model.M00402_GetAllAccounts[i].z_create_date.Month.ToString().PadLeft(2, '0'),
-          @Model.M00402_GetAllAccounts[i].z_create_date.Day)
+          @Model.M00402_GetAllUsers[i].z_create_date.Year,
+          @Model.M00402_GetAllUsers[i].z_create_date.Month.ToString().PadLeft(2, '0'),
+          @Model.M00402_GetAllUsers[i].z_create_date.Day)
         </td>
         <td>
           @string.Format("{0}/{1}/{2}",
-          @Model.M00402_GetAllAccounts[i].z_update_date.Year,
-          @Model.M00402_GetAllAccounts[i].z_update_date.Month.ToString().PadLeft(2, '0'),
-          @Model.M00402_GetAllAccounts[i].z_update_date.Day)
+          @Model.M00402_GetAllUsers[i].z_update_date.Year,
+          @Model.M00402_GetAllUsers[i].z_update_date.Month.ToString().PadLeft(2, '0'),
+          @Model.M00402_GetAllUsers[i].z_update_date.Day)
         </td>
-        <td>@Model.M00402_GetAllAccounts[i].z_create_by_user</td>
-        <td>@Model.M00402_GetAllAccounts[i].z_update_by_user</td>
+        <td>@Model.M00402_GetAllUsers[i].z_create_by_user</td>
+        <td>@Model.M00402_GetAllUsers[i].z_update_by_user</td>
         <td>
-          @if(@Model.M00402_GetAllAccounts[i].z_account_id != 1)
+          @if(@Model.M00402_GetAllUsers[i].z_user_id != 1)
           {
-            <button onclick="DeleteUser(@Model.M00402_GetAllAccounts[i].z_account_id, 'Are you sure')">Delete Account</button>
+            <button onclick="DeleteUser(@Model.M00402_GetAllUsers[i].z_user_id, 'Are you sure')">Delete Account</button>
           }
         </td>
       </tr>

@@ -36,21 +36,24 @@ namespace TTS_SourceFiles.Repository
 
         public List<M00401_LabelTable> M00401_SetLabelTable(string select_language)
         {
-            string z_lbl_account_id = SetLanguage.GetFieldName(select_language, "Label_V004_001");
-            string z_lbl_account_name = SetLanguage.GetFieldName(select_language, "Label_V004_002");
-            string z_lbl_account_password = SetLanguage.GetFieldName(select_language, "Label_V004_003");
+            string z_lbl_user_id = SetLanguage.GetFieldName(select_language, "Label_V004_001");
+            string z_lbl_user_name = SetLanguage.GetFieldName(select_language, "Label_V004_002");
+            string z_lbl_user_password = SetLanguage.GetFieldName(select_language, "Label_V004_003");
+            string z_lbl_user_role = SetLanguage.GetFieldName(select_language, "Label_V004_009");
             string z_lbl_is_active = SetLanguage.GetFieldName(select_language, "Label_V004_004");
             string z_lbl_create_date = SetLanguage.GetFieldName(select_language, "Label_V004_005");
             string z_lbl_update_date = SetLanguage.GetFieldName(select_language, "Label_V004_006");
             string z_lbl_create_by_user = SetLanguage.GetFieldName(select_language, "Label_V004_007");
             string z_lbl_update_by_user = SetLanguage.GetFieldName(select_language, "Label_V004_008");
+   
             string z_btn_create_user = SetLanguage.GetFieldName(select_language, "Button_V004_001");
 
             List<M00401_LabelTable> m00401_LabelTables = new List<M00401_LabelTable>();
             m00401_LabelTables.Add(new M00401_LabelTable() { 
-                z_lbl_account_id = z_lbl_account_id, 
-                z_lbl_account_name = z_lbl_account_name,
-                z_lbl_account_password = z_lbl_account_password,
+                z_lbl_user_id = z_lbl_user_id, 
+                z_lbl_user_name = z_lbl_user_name,
+                z_lbl_user_password = z_lbl_user_password,
+                z_lbl_user_role = z_lbl_user_role,
                 z_lbl_is_active = z_lbl_is_active,
                 z_lbl_create_date = z_lbl_create_date,
                 z_lbl_update_date = z_lbl_update_date,
@@ -61,13 +64,13 @@ namespace TTS_SourceFiles.Repository
             return m00401_LabelTables;
         }
 
-        public List<M00402_GetAllAccount> M00402_GetAllAccounts()
+        public List<M00402_GetAllUser> M00402_GetAllUsers()
         {
             using(var conn = ConnectDB.ConnectDataBase())
             {
                 StringBuilder sqlFormat = new StringBuilder(string.Empty);
-                sqlFormat.Append("SELECT * FROM ttsDB.dbo.z_AccountTbl ");
-                return conn.Query<M00402_GetAllAccount>(sqlFormat.ToString()).ToList();
+                sqlFormat.Append("SELECT * FROM ttsDB.dbo.z_UserTable ");
+                return conn.Query<M00402_GetAllUser>(sqlFormat.ToString()).ToList();
             }
         }
 
@@ -77,12 +80,12 @@ namespace TTS_SourceFiles.Repository
             using(var conn = ConnectDB.ConnectDataBase())
             {
                 StringBuilder sqlFormat = new StringBuilder(string.Empty);
-                sqlFormat.Append("SELECT z_account_email FROM ttsDB.dbo.z_AccountTbl ");
-                List<M00402_GetAllAccount> m00402_GetAllAccounts = new List<M00402_GetAllAccount>();
-                m00402_GetAllAccounts = conn.Query<M00402_GetAllAccount>(sqlFormat.ToString()).ToList();
+                sqlFormat.Append("SELECT z_user_email FROM ttsDB.dbo.z_UserTable ");
+                List<M00402_GetAllUser> m00402_GetAllAccounts = new List<M00402_GetAllUser>();
+                m00402_GetAllAccounts = conn.Query<M00402_GetAllUser>(sqlFormat.ToString()).ToList();
                 for(int i=0; i < m00402_GetAllAccounts.Count; i++)
                 {
-                    string current_uname = m00402_GetAllAccounts[i].z_account_email;
+                    string current_uname = m00402_GetAllAccounts[i].z_user_email;
                     if(string.Compare(current_uname, uname) == 0)
                     {
                         isExist = true;
@@ -97,7 +100,8 @@ namespace TTS_SourceFiles.Repository
             string uname,
             string psw,
             int checkbox,
-            string current_user)
+            string current_user,
+            string user_role)
         {
             bool result = true;
             try
@@ -105,12 +109,13 @@ namespace TTS_SourceFiles.Repository
                 using(var conn = ConnectDB.ConnectDataBase())
                 {
                     StringBuilder sqlFormat = new StringBuilder(string.Empty);
-                    sqlFormat.Append("INSERT INTO ttsDB.dbo.z_AccountTbl (z_account_email, z_account_password, z_is_active, z_create_date, z_update_date, z_create_by_user, z_update_by_user)　");
-                    sqlFormat.Append("VALUES ('{0}', '{1}', {2}, '{3}', '{4}', '{5}', '{6}');");
+                    sqlFormat.Append("INSERT INTO ttsDB.dbo.z_UserTable (z_user_email, z_user_password, z_user_role, z_is_active, z_create_date, z_update_date, z_create_by_user, z_update_by_user)　");
+                    sqlFormat.Append("VALUES ('{0}', '{1}', '{2}', {3}, '{4}', '{5}', '{6}', '{7}');");
                     string sqlQuery = string.Format(
                         sqlFormat.ToString(),
                         uname,
                         psw,
+                        user_role,
                         checkbox.ToString(),
                         DateTime.Now.ToString(),
                         DateTime.Now.ToString(),
@@ -134,7 +139,7 @@ namespace TTS_SourceFiles.Repository
                 using(var conn = ConnectDB.ConnectDataBase())
                 {
                     StringBuilder sqlFormat = new StringBuilder(string.Empty);
-                    sqlFormat.Append("DELETE FROM ttsDB.dbo.z_AccountTbl WHERE z_account_id = {0} ");
+                    sqlFormat.Append("DELETE FROM ttsDB.dbo.z_UserTable WHERE z_user_id = {0} ");
                     string sqlQuery = string.Format(sqlFormat.ToString(), ACCOUNT_ID);
                     conn.Query(sqlQuery);
                 }

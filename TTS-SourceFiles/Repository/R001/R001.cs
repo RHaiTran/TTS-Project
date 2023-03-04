@@ -13,8 +13,8 @@ namespace TTS_SourceFiles.Repository
             using(var conn = ConnectDB.ConnectDataBase())
             {
                 StringBuilder sqlFormat = new StringBuilder(string.Empty);
-                sqlFormat.Append("SELECT * FROM ttsDB.dbo.z_AccountTbl ");
-                sqlFormat.Append("WHERE z_account_email = '{0}' AND z_account_password = '{1}'");
+                sqlFormat.Append("SELECT * FROM ttsDB.dbo.z_UserTable ");
+                sqlFormat.Append("WHERE z_user_email = '{0}' AND z_user_password = '{1}'");
                 string sqlQuery = string.Format(sqlFormat.ToString(),uname, psw);
                 List<M00101_GetUserInfo>  M00101_GetUserInfos = conn.Query<M00101_GetUserInfo>(sqlQuery).ToList();
                 int cnt = M00101_GetUserInfos.Count();
