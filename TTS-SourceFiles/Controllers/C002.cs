@@ -28,8 +28,11 @@ public class C002 : Controller
         return View("~/Views/V002_Home/V00201_HomePage.cshtml", modelHome);
     }
 
-    public IActionResult CreateNotificationPage()
+    [Route("C002/CreateNotification/TITlE = {TITlE}/CONTENT = {CONTENT}")]
+    public IActionResult CreateNotification(
+        string TITlE,
+        string CONTENT)
     {
-        return View("~/Views/V002_Home/V00202_CreateNotificationForm.cshtml");
+        return NoContent();
     }
 }

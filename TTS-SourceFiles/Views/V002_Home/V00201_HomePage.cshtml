@@ -2,15 +2,40 @@
     Layout = "_LayoutPage";
 }
 <link rel="stylesheet" href="~/css/V00201_HomePage.css" asp-append-version="true" />
+<script src="~/js/V00201.js" asp-append-version="true"></script>
+<button class="btnUser" onclick="OpenModal()">通知を新規追加</button>
 
-<p id="LANGUAGE_SETTINGS" hidden>@ViewData["LANGUAGE_SETTINGS"]</p>
-<p id="CURRENT_USER" hidden>@Model.CURRENT_USER</p>
-<form asp-controller="C002" asp-action="CreateNotificationPage" method="post">
-    <input type="hidden" name="LANGUAGE_SETTINGS" value= @ViewData["LANGUAGE_SETTINGS"]>
-    <input type="hidden" name="CURRENT_USER" value= @Model.CURRENT_USER>
-    <button type="submit" class="btnUser btnV00201_CreateNotifice">Create New Notification</a>
-</form>
+<div id="modalNotifice" class="modal">
+  <div class="modal-content">
+    <div>
+      <label style="float: left; padding-right: 700px"><b>通知を新規追加フォーム</label>
+      <button class="close" onclick="CloseModal()">&times;</button>
+    </div>
+    <div>
+        <div class="row">
+          <div class="col-25">
+            <label for="fname">Notification Title</label>
+          </div>
+          <div class="col-75">
+            <input type="text" class="input-field" id="title" name="title" placeholder="Notification Title..">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="subject">Notifice Content</label>
+          </div>
+          <div class="col-75">
+            <textarea type="text" class="input-field" id="content" name="content" placeholder="Write something.." style="height:200px"></textarea>
+          </div>
+        </div>
+        <div class="row" style="padding-left: 850px">
+          <button class="btnUser btnV00201_Submit" onclick="CreateNotification()"">Submit</button>
+        </div>
+    </div>
+  </div>
+</div>
 
+<div>
 <table id="notifice">
   <tr>
     <th>Notifice Title</th>
@@ -22,3 +47,4 @@
     <td>Content 2</td>
   </tr>
 </table>
+<div>
