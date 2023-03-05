@@ -22,3 +22,9 @@ function OpenUserModal(){
   var modal = document.getElementById("modalUser");
   modal.style.display = "block";
 }
+
+function CloseUserModal(){
+  // Get the modal
+  var modal = document.getElementById("modalUser");
+  modal.style.display = "none";
+}
