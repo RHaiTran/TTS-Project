@@ -48,6 +48,8 @@ public class C001 : Controller
         mLogin.M00102_SetLoginPageLanguages = repo.M00102_SetLoginPageLanguage(select_language);
         if(result == 1)
         {
+            R002 repo002 = new R002();
+            model.M00201_GetAllNotifications = repo002.M00201_GetAllNotifications();
             ViewData["CURRENT_USER"] = uname;
             ViewData["LANGUAGE_SETTINGS"] = select_language;
             return View("~/Views/V002_Home/V00201_HomePage.cshtml", model);

@@ -3,6 +3,7 @@ namespace TTS_SourceFiles.Models
     public class M000_Layout
     {
         public List<M00001_NavigationName> M00001_NavigationNames{get; set;}
+        public List<M00201_GetAllNotification> M00201_GetAllNotifications{get; set;}
     }
 
     public class M00001_NavigationName

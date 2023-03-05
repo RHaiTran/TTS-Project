@@ -34,3 +34,6 @@ CREATE TABLE z_NotificeTable (
     z_update_notifice_by_user nvarchar(255) NOT NULL
     PRIMARY KEY (z_notifice_id)
 );
+
+INSERT INTO z_NotificeTable (z_notifice_title, z_notifice_content, z_create_notifice_date, z_update_notifice_date, z_create_notifice_by_user, z_update_notifice_by_user)
+VALUES ('admin-system@tts.com', 'admin', 'manager',1, '2023/02/26', '2023/02/26', 'super user', 'super user');

@@ -1,7 +1,7 @@
 #notifice {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    width: 100%;
+    width: 40%;
 }
   
 #notifice td, #notifice th {
@@ -89,4 +89,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 .btnV00201_Submit {
   width: 80px;
+}
+
+.errMess {
+  padding: 5px;
+  background-color: #f44336;
+  color: white;
 }

@@ -4,14 +4,19 @@
 <link rel="stylesheet" href="~/css/V00201_HomePage.css" asp-append-version="true" />
 <script src="~/js/V00201.js" asp-append-version="true"></script>
 <button class="btnUser" onclick="OpenModal()">通知を新規追加</button>
+<p id="LANGUAGE_SETTINGS" hidden>@ViewData["LANGUAGE_SETTINGS"]</p>
+<p id="CURRENT_USER" hidden>@ViewData["CURRENT_USER"]</p>
 
 <div id="modalNotifice" class="modal">
   <div class="modal-content">
     <div>
-      <label style="float: left; padding-right: 700px"><b>通知を新規追加フォーム</label>
+      <label style="float: left; padding-right: 705px; padding-bottom: 20px"><b>通知を新規追加フォーム</label>
       <button class="close" onclick="CloseModal()">&times;</button>
     </div>
     <div>
+        <div>
+          <p id="error-message" name="error-message"></p>
+        </div>
         <div class="row">
           <div class="col-25">
             <label for="fname">Notification Title</label>
@@ -40,11 +45,13 @@
   <tr>
     <th>Notifice Title</th>
   </tr>
-  <tr>
-    <td>Content 1</td>
-  </tr>
-  <tr>
-    <td>Content 2</td>
-  </tr>
+  @if(@Model.M00201_GetAllNotifications.Count > 0){
+    @for (int i = 0; i < @Model.M00201_GetAllNotifications.Count; i++)
+    {
+      <tr>
+        <td>@Model.M00201_GetAllNotifications[i].z_notifice_title</td>
+      </tr>
+    }
+  }
 </table>
 <div>
