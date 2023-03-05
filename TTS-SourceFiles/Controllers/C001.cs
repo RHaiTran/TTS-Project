@@ -55,7 +55,8 @@ public class C001 : Controller
             return View("~/Views/V002_Home/V00201_HomePage.cshtml", model);
         } else if(result == -1)
         {
-            ViewBag.Error_Message_V001_002 = SetLanguage.GetFieldName(select_language, "Error_Message_V001_002");
+            ViewBag.Error_Message_V001_002_01 = SetLanguage.GetFieldName(select_language, "Error_Message_V001_002_01");
+            ViewBag.Error_Message_V001_002_02 = SetLanguage.GetFieldName(select_language, "Error_Message_V001_002_02");
             return View("~/Views/V001_Login/V00101_LoginPage.cshtml", mLogin);
         }
         else {

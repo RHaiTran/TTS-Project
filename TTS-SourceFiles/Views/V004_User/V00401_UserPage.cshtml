@@ -59,7 +59,7 @@
     {
       <tr>
         <td>@Model.M00402_GetAllUsers[i].z_user_id</td>
-        <td>@Model.M00402_GetAllUsers[i].z_user_email</td>
+        <td><a href="" onclick="return OpenUserModal();">@Model.M00402_GetAllUsers[i].z_user_email</a></td>
         <td>@Model.M00402_GetAllUsers[i].z_user_password</td>
         <td>@Model.M00402_GetAllUsers[i].z_user_role</td>
         <td>
@@ -94,4 +94,16 @@
     }
   }
 </table>
-<div>
+</div>
+
+<div id="modalUser" class="modal">
+  <div class="modal-content">
+    <div>
+      <label style="float: left; padding-right: 705px; padding-bottom: 20px"><b>通知を新規追加フォーム</label>
+      <button class="close" onclick="CloseModal()">&times;</button>
+    </div>
+    <div>
+      <label>container;</label>
+    </div>
+  </div>
+</div>

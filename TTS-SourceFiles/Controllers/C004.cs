@@ -213,4 +213,9 @@ public class C004 : Controller
         }
         
     }
+
+    public IActionResult EditUser()
+    {
+        return NoContent();
+    }
 }

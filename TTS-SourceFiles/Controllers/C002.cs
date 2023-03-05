@@ -22,7 +22,7 @@ public class C002 : Controller
         R002 repo002 = new R002();
         M002_Home modelHome = new M002_Home(); 
         ViewData["LANGUAGE_SETTINGS"] = LANGUAGE_SETTINGS;
-        modelHome.CURRENT_USER = CURRENT_USER;
+        ViewData["CURRENT_USER"] = CURRENT_USER;
         ViewBag.PageID = "V002";
         modelHome.M00001_NavigationNames = repo002.M00200_SetLabelLayout(LANGUAGE_SETTINGS);
         modelHome.M00201_GetAllNotifications = repo002.M00201_GetAllNotifications();
@@ -39,7 +39,7 @@ public class C002 : Controller
         R002 repo002 = new R002();
         M002_Home modelHome = new M002_Home(); 
         ViewData["LANGUAGE_SETTINGS"] = LANGUAGE_SETTINGS;
-        modelHome.CURRENT_USER = CURRENT_USER;
+        ViewData["CURRENT_USER"] = CURRENT_USER;
         ViewBag.PageID = "V002";
         repo002.M00201_CreateNotification(TITlE, CONTENT, CURRENT_USER);
         modelHome.M00001_NavigationNames = repo002.M00200_SetLabelLayout(LANGUAGE_SETTINGS);

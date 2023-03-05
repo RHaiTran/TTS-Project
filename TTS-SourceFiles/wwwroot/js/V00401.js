@@ -15,3 +15,10 @@ function DeleteUser(ACCOUNT_ID, Message) {
         + '/ACCOUNT_ID = ' + ACCOUNT_ID;
     }
 }
+
+function OpenUserModal(){
+  debugger;
+  // Get the modal
+  var modal = document.getElementById("modalUser");
+  modal.style.display = "block";
+}

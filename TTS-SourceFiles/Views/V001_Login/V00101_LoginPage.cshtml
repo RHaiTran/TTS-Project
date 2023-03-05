@@ -18,11 +18,12 @@
         @ViewBag.Error_Message_V001_001
       </div>
     }
-    @if (@ViewBag.Error_Message_V001_002 != null)
+    @if (@ViewBag.Error_Message_V001_002_01 != null)
     {
       <div class="errMess">
         <span class="closeMess" onclick="this.parentElement.style.display='none';">&times;</span> 
-        @ViewBag.Error_Message_V001_002
+        <p>@ViewBag.Error_Message_V001_002_01</p>
+        <p>@ViewBag.Error_Message_V001_002_02</p>
       </div>
     }
     <input type="hidden" name="select_language" id="select_language" value= @ViewBag.Set_Language>
