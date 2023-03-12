@@ -6,6 +6,7 @@
 <div>
 <p id="LANGUAGE_SETTINGS" hidden>@ViewData["LANGUAGE_SETTINGS"]</p>
 <p id="CURRENT_USER" hidden>@Model.CURRENT_USER</p>
+<p id="MESSAGE_DELETE_USER" hidden>@Model.M00401_LabelTables[0].z_message_delete_user</p>
 <form asp-controller="C004" asp-action="CreateUserForm" method="post">
     <input type="hidden" name="LANGUAGE_SETTINGS" value= @ViewData["LANGUAGE_SETTINGS"]>
     <input type="hidden" name="CURRENT_USER" value= @Model.CURRENT_USER>
@@ -13,34 +14,37 @@
 </form>
 </div>
 <div>
+@if(@ViewBag.Sucess_Message_V00401_01 != null) {
+  <div class="sucessMess">
+    <span class="closeMess" onclick="this.parentElement.style.display='none';">&times;</span> 
+    @ViewBag.Sucess_Message_V00401_01
+  </div>
+}
+
+@* Add User Failed *@
+@if(@ViewBag.Error_Message_V00401_01 != null) {
+  <div class="errMess">
+    <span class="closeMess" onclick="this.parentElement.style.display='none';">&times;</span> 
+    @ViewBag.Error_Message_V00401_01
+  </div>
+}
+
+@* Delete User Success *@
+@if(@ViewBag.Sucess_Message_V00401_02 != null) {
+  <div class="sucessMess">
+    <span class="closeMess" onclick="this.parentElement.style.display='none';">&times;</span> 
+    @ViewBag.Sucess_Message_V00401_02
+  </div>
+}
+
+@* Delete User Failed *@
+@if(@ViewBag.Error_Message_V00401_02 != null) {
+  <div class="errMess">
+    <span class="closeMess" onclick="this.parentElement.style.display='none';">&times;</span> 
+    @ViewBag.Error_Message_V00401_02
+  </div>
+}
 <table>
-  <tr>
-    @* Add Account Success *@
-    <th colspan="8">
-      @if(@ViewBag.Sucess_Message_V00401_01 != null) {
-        <div class="errMess">
-          <span class="closeMess" onclick="this.parentElement.style.display='none';">&times;</span> 
-          @ViewBag.Sucess_Message_V00401_01
-        </div>
-      }
-
-      @* Delete Account Success *@
-      @if(@ViewBag.Sucess_Message_V00401_02 != null) {
-        <div class="errMess">
-          <span class="closeMess" onclick="this.parentElement.style.display='none';">&times;</span> 
-          @ViewBag.Sucess_Message_V00401_02
-        </div>
-      }
-
-      @* Delete Account Failed *@
-      @if(@ViewBag.Error_Message_V00401_02 != null) {
-        <div class="errMess">
-          <span class="closeMess" onclick="this.parentElement.style.display='none';">&times;</span> 
-          @ViewBag.Error_Message_V00401_02
-        </div>
-      }
-    </th>
-  </tr>
   <tr>
     <th>@Model.M00401_LabelTables[0].z_lbl_user_id</th>
     <th>@Model.M00401_LabelTables[0].z_lbl_user_name</th>
@@ -87,7 +91,7 @@
         <td>
           @if(@Model.M00402_GetAllUsers[i].z_user_id != 1)
           {
-            <button onclick="DeleteUser(@Model.M00402_GetAllUsers[i].z_user_id, 'Are you sure')">Delete Account</button>
+            <button onclick="DeleteUser(@Model.M00402_GetAllUsers[i].z_user_id)">Delete Account</button>
           }
         </td>
       </tr>

@@ -1,13 +1,9 @@
-// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
-function DeleteUser(ACCOUNT_ID, Message) {
+function DeleteUser(ACCOUNT_ID) {
     debugger;
+    var Message = document.getElementById('MESSAGE_DELETE_USER').innerHTML;
     var LANGUAGE_SETTINGS = document.getElementById('LANGUAGE_SETTINGS').innerHTML;
     var CURRENT_USER = document.getElementById('CURRENT_USER').innerHTML;
-    let text = Message;
-    if (confirm(text) == true) {
+    if (confirm(Message) == true) {
       window.location.href = 
         '/C004/DeleteUser'
         + '/LANGUAGE_SETTINGS = ' + LANGUAGE_SETTINGS

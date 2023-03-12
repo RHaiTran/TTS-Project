@@ -11,47 +11,22 @@
   <input type="hidden" name="CURRENT_USER" value= @Model.CURRENT_USER>
   <h2>@Model.M00403_LabelCreateUserForms[0].z_lbl_create_user_form</h2>
   <div style="padding-bottom: 5px;">
-  @if(ViewBag.Error_Message_V00402_01 != null) {
-    <div class="errMess">
-      <span class="closeMess" onclick="this.parentElement.style.display='none';">&times;</span> 
-      @ViewBag.Error_Message_V00402_01
-    </div>
-  }
-  @if(ViewBag.Error_Message_V00402_02 != null) {
-      <div class="errMess">
-        <span class="closeMess" onclick="this.parentElement.style.display='none';">&times;</span> 
-        @ViewBag.Error_Message_V00402_02
-      </div>
-  }
-  @if(ViewBag.Error_Message_V00402_03 != null) {
+    <p id="error-message" name="error-message"></p>
+    @if(ViewBag.Error_Message_V00402_03 != null) {
       <div class="errMess">
         <span class="closeMess" onclick="this.parentElement.style.display='none';">&times;</span> 
         @ViewBag.Error_Message_V00402_03
       </div>
-  }
-  @if(ViewBag.Error_Message_V00402_04 != null) {
-    <div class="errMess">
-      <span class="closeMess" onclick="this.parentElement.style.display='none';">&times;</span> 
-      @ViewBag.Error_Message_V00402_04
-    </div>
-  }
+    }
   </div>
   <div class="input-container">
     <i class="fa fa-user icon"></i>
-    @if(ViewData["uname"] != null) {
-      <input class="input-field" type="text" id="uname" value= @ViewData["uname"] name="uname">
-    } else {
-      <input class="input-field" type="text" id="uname" placeholder="@Model.M00403_LabelCreateUserForms[0].z_lbl_request_user_name" name="uname">
-    }
+    <input class="input-field" type="text" id="uname" name="uname" placeholder="@Model.M00403_LabelCreateUserForms[0].z_lbl_request_user_name">
   </div>
     
   <div class="input-container">
     <i class="fa fa-key icon"></i>
-    @if(ViewData["psw"] != null) {
-      <th><input class="input-field" type="password" id="psw" value= @ViewData["psw"] name="psw"></th>
-    } else {
-      <th><input class="input-field" type="password" id="psw" placeholder="@Model.M00403_LabelCreateUserForms[0].z_lbl_request_user_password" name="psw"></th>
-    }
+    <input class="input-field" type="password" id="psw" name="psw" placeholder="@Model.M00403_LabelCreateUserForms[0].z_lbl_request_user_password">
   </div>
     
   <div class="input-container">

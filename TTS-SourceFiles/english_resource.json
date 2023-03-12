@@ -38,7 +38,7 @@
       "Label_V004_02_007": "This user will be add. Are you sure?",
       "Error_Message_V00402_01": "Username cannot be blank.",
       "Error_Message_V00402_02": "Password must be at least 4 characters.",
-      "Error_Message_V00402_03": "Account name exists.",
+      "Error_Message_V00402_03": "Account name [{0}] is exists.",
       "Error_Message_V00402_04": "Email is not verified."
     }
 }
