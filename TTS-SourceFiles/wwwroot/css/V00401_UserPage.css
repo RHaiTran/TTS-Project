@@ -14,15 +14,10 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
-.btnV004_CreateUser {
-  background-color: white; 
-  color: black; 
-  border: 2px solid midnightblue;
-}
-
-.btnV004_CreateUser:hover {
-  background-color: midnightblue;
-  color: white;
+.addBtn {
+  background-color: midnightblue; 
+  color: white; 
+  border: 1px solid midnightblue;
 }
 
 body {font-family: Arial, Helvetica, sans-serif;}
@@ -48,7 +43,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 50%;
+  width: 25%;
 }
 
 /* Display Error Message */
@@ -77,5 +72,80 @@ body {font-family: Arial, Helvetica, sans-serif;}
 .sucessMess {
   padding: 10px;
   background-color: #4CAF50!important;
+  color: white;
+}
+
+.addbtn {
+  background-color: midnightblue;
+  color: white;
+  border: solid midnightblue 1px;
+}
+
+.deletebtn {
+  background-color: #f44336;
+  color: white;
+  border: solid red 1px;
+}
+
+.disablebtn {
+  background-color: gray;
+  color: white;
+  border: solid gray 1px;
+}
+
+/* Modal Popup */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+* {box-sizing: border-box;}
+
+.input-container {
+display: -ms-flexbox; /* IE10 */
+display: flex;
+width: 100%;
+margin-bottom: 10px;
+height: 35px;
+}
+
+.icon {
+padding: 10px;
+background: midnightblue;
+color: white;
+min-width: 50px;
+text-align: center;
+}
+
+.input-field {
+width: 100%;
+padding: 10px;
+outline: none;
+}
+
+.input-field:focus {
+border: 2px solid midnightblue;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.editbtn {
+  float: left;
+  width: 49%;
+}
+
+.cancelbtn {
+  float: right;
+  width: 49%;
+}
+
+/* Extra styles for the cancel button */
+.editbtn {
+  height: 35px;
+  background-color: midnightblue;
+  color: white;
+}
+
+.cancelbtn {
+  height: 35px;
+  background-color: #f44336;
   color: white;
 }

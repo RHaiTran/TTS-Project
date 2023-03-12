@@ -9,7 +9,7 @@
 <form style="max-width:500px; padding-left: 10px">
   <input type="hidden" name="LANGUAGE_SETTINGS" value= @ViewData["LANGUAGE_SETTINGS"]>
   <input type="hidden" name="CURRENT_USER" value= @Model.CURRENT_USER>
-  <h2>@Model.M00403_LabelCreateUserForms[0].z_lbl_create_user_form</h2>
+  <h4 style="padding-top: 10px">@Model.M00403_LabelCreateUserForms[0].z_lbl_create_user_form</h4>
   <div style="padding-bottom: 5px;">
     <p id="error-message" name="error-message"></p>
     @if(ViewBag.Error_Message_V00402_03 != null) {
